@@ -20,6 +20,30 @@ export function asignaturaPorNombre(nombre: string): Asignatura {
   return asignatura;
 }
 
+/** Asignaturas del bloque Semestre IV (5 asignaturas, 10 sesiones). */
+export const BLOQUE_IV = [
+  'Bases de datos 1',
+  'Modelización informacional',
+  'Infraestructura TI 1',
+  'Estructuras de sistemas',
+  'Proyecto núcleo 1',
+] as const;
+
+/** Programa las 10 sesiones del bloque IV sin restricciones ni advertencias. */
+export function bloqueIVCompleto(): Escenario {
+  return new Escenario(BLOQUE_IV)
+    .programar('Bases de datos 1', 1, 'lunes', 7)
+    .programar('Bases de datos 1', 2, 'miercoles', 7)
+    .programar('Bases de datos 1', 3, 'viernes', 7)
+    .programar('Modelización informacional', 1, 'lunes', 9)
+    .programar('Modelización informacional', 2, 'miercoles', 9)
+    .programar('Infraestructura TI 1', 1, 'martes', 7)
+    .programar('Infraestructura TI 1', 2, 'jueves', 7)
+    .programar('Estructuras de sistemas', 1, 'martes', 9)
+    .programar('Estructuras de sistemas', 2, 'jueves', 9)
+    .programar('Proyecto núcleo 1', 1, 'viernes', 9);
+}
+
 /**
  * Ayuda de pruebas: crea la sección 01 de cada asignatura indicada (en el bloque
  * de su semestre, o sin bloque si es fuera de bloque) y permite programar sesiones.

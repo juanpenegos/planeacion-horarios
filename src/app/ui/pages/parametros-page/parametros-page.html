@@ -1,5 +1,13 @@
 <div class="pagina">
-  <section class="panel">
-    <h2 class="panel-titulo">Parámetros</h2>
+  <section class="panel" aria-labelledby="titulo-parametros-pagina">
+    <h2 class="panel-titulo" id="titulo-parametros-pagina">Parámetros</h2>
+    <p class="ayuda">
+      Estos valores rigen la cuadrícula y las reglas. Al guardar, la verificación se recalcula y las
+      sesiones que queden fuera del horario se marcan con RN-01.
+    </p>
+    <app-formulario-parametros [parametros]="store.parametros()" (guardar)="guardar($event)" />
+    @if (guardado()) {
+      <p class="guardado" role="status"><span aria-hidden="true">✔</span> Parámetros guardados</p>
+    }
   </section>
 </div>

@@ -1,0 +1,113 @@
+<form (submit)="enviar($event)" novalidate>
+  <fieldset>
+    <legend>Horario habilitado por día</legend>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Día</th>
+          <th scope="col">Desde (hora)</th>
+          <th scope="col">Hasta (hora)</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (dia of dias; track dia) {
+          <tr>
+            <th scope="row">{{ nombreDia[dia] }}</th>
+            <td>
+              <input
+                type="number"
+                min="0"
+                max="24"
+                step="1"
+                [attr.aria-label]="nombreDia[dia] + ' desde'"
+                [attr.data-campo]="dia + '-inicio'"
+                [value]="borrador().horarioHabilitado[dia].inicio"
+                (input)="cambiarDia(dia, 'inicio', $any($event.target).value)"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                min="0"
+                max="24"
+                step="1"
+                [attr.aria-label]="nombreDia[dia] + ' hasta'"
+                [attr.data-campo]="dia + '-fin'"
+                [value]="borrador().horarioHabilitado[dia].fin"
+                (input)="cambiarDia(dia, 'fin', $any($event.target).value)"
+              />
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </fieldset>
+
+  <fieldset>
+    <legend>Sesiones</legend>
+    <div class="campos">
+      <label>
+        Bloque sin clases desde
+        <input
+          type="number"
+          min="0"
+          max="24"
+          data-campo="sin-clases-inicio"
+          [value]="borrador().bloqueSinClases.inicio"
+          (input)="cambiarBloqueSinClases('inicio', $any($event.target).value)"
+        />
+      </label>
+      <label>
+        hasta
+        <input
+          type="number"
+          min="0"
+          max="24"
+          data-campo="sin-clases-fin"
+          [value]="borrador().bloqueSinClases.fin"
+          (input)="cambiarBloqueSinClases('fin', $any($event.target).value)"
+        />
+      </label>
+      <label>
+        Duración de la sesión (horas)
+        <input
+          type="number"
+          min="1"
+          data-campo="duracion"
+          [value]="borrador().duracionSesionHoras"
+          (input)="cambiarNumero('duracionSesionHoras', $any($event.target).value)"
+        />
+      </label>
+      <label>
+        Máximo de sesiones semanales por sección
+        <input
+          type="number"
+          min="1"
+          data-campo="maximo"
+          [value]="borrador().maximoSesionesSemana"
+          (input)="cambiarNumero('maximoSesionesSemana', $any($event.target).value)"
+        />
+      </label>
+    </div>
+  </fieldset>
+
+  @if (errores().length > 0) {
+    <ul class="errores" role="alert">
+      @for (e of errores(); track e) {
+        <li>{{ e }}</li>
+      }
+    </ul>
+  }
+
+  <div class="acciones">
+    <button
+      app-boton
+      variante="primario"
+      type="submit"
+      [disabled]="errores().length > 0 || !hayCambios()"
+    >
+      Guardar
+    </button>
+    <button app-boton type="button" (click)="restablecer()">Restablecer valores por defecto</button>
+  </div>
+</form>

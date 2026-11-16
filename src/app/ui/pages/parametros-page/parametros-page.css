@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+.pagina {
+  max-width: 720px;
+}
+.ayuda {
+  margin: 0 0 var(--espacio-6);
+  font-size: var(--texto-sm);
+  color: var(--color-texto-suave);
+}
+.guardado {
+  margin: var(--espacio-6) 0 0;
+  font-weight: var(--peso-fuerte);
+  color: var(--correcta-borde);
+}

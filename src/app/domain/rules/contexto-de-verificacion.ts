@@ -50,6 +50,15 @@ export class ContextoDeVerificacion {
     return franja.horaInicio + this.parametros.duracionSesionHoras;
   }
 
+  /** Dos sesiones programadas se cruzan si son el mismo día y sus horas se solapan. */
+  seCruzan(a: SesionProgramada, b: SesionProgramada): boolean {
+    return (
+      a.franja.dia === b.franja.dia &&
+      a.franja.horaInicio < this.horaFin(b.franja) &&
+      b.franja.horaInicio < this.horaFin(a.franja)
+    );
+  }
+
   /** «Bases de datos 1 sección 01». */
   describirSeccion(seccion: Seccion): string {
     return `${this.asignaturaDeSeccion(seccion).nombre} sección ${seccion.numero}`;

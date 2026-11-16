@@ -1,6 +1,10 @@
+import { Ra01DiasConsecutivos } from './ra01-dias-consecutivos';
 import { Regla } from './regla';
 import { Rn01HorarioHabilitado } from './rn01-horario-habilitado';
 import { Rn02BloqueSinClases } from './rn02-bloque-sin-clases';
+import { Rn03NumeroDeSesiones } from './rn03-numero-de-sesiones';
+import { Rn04CruceEnSeccion } from './rn04-cruce-en-seccion';
+import { Rn05CruceEnBloque } from './rn05-cruce-en-bloque';
 
 /** Lista de reglas que el verificador evalúa. */
 export class RegistroDeReglas {
@@ -23,5 +27,9 @@ export class RegistroDeReglas {
 export function crearRegistroDelDominio(): RegistroDeReglas {
   return new RegistroDeReglas()
     .registrar(new Rn01HorarioHabilitado())
-    .registrar(new Rn02BloqueSinClases());
+    .registrar(new Rn02BloqueSinClases())
+    .registrar(new Rn03NumeroDeSesiones())
+    .registrar(new Rn04CruceEnSeccion())
+    .registrar(new Rn05CruceEnBloque())
+    .registrar(new Ra01DiasConsecutivos());
 }

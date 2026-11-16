@@ -7,6 +7,8 @@ import { proveerDatos } from './data/proveedores';
 
 describe('App', () => {
   beforeEach(async () => {
+    // Cada prueba parte de una planeación vacía, sin datos de otras pruebas.
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [provideRouter(routes), ...proveerDatos()],

@@ -1,0 +1,43 @@
+<app-plantilla-tres-columnas cdkDropListGroup>
+  <div izquierda>
+    <section class="panel">
+      <h2 class="panel-titulo">Bloque de semestre</h2>
+      <app-selector-bloque
+        [opciones]="store.opcionesDeBloque()"
+        [(seleccionado)]="store.grupoSeleccionado"
+      />
+    </section>
+    <app-panel-pendientes
+      [sesiones]="store.pendientes()"
+      [inicios]="store.inicios()"
+      [mensajeVacio]="
+        store.sesionesDelGrupo().length === 0
+          ? 'Este bloque no tiene secciones. Créalas en la página Secciones.'
+          : 'No hay sesiones pendientes.'
+      "
+      (programar)="programar($event)"
+      (devolver)="store.devolver($event)"
+    />
+  </div>
+  <div centro>
+    <section class="panel">
+      <h2 class="panel-titulo">Horario semanal</h2>
+      <app-cuadricula-semanal
+        [sesiones]="store.programadas()"
+        [parametros]="store.parametros()"
+        [inicios]="store.inicios()"
+        (programar)="programar($event)"
+        (devolver)="store.devolver($event)"
+      />
+    </section>
+  </div>
+  <div derecha>
+    <section class="panel">
+      <h2 class="panel-titulo">Verificación</h2>
+      <p>{{ store.textoResumen() }}</p>
+    </section>
+    <section class="panel">
+      <h2 class="panel-titulo">Parámetros</h2>
+    </section>
+  </div>
+</app-plantilla-tres-columnas>

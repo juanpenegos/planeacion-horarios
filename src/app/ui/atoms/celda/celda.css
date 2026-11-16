@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  min-height: var(--alto-fila);
+  height: 100%;
+  border-top: var(--borde-fino) solid var(--cuadricula-linea);
+  border-left: var(--borde-fino) solid var(--cuadricula-linea);
+  position: relative;
+}
+:host(.fuera-de-horario) {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--fuera-de-horario-1) 0 var(--espacio-3),
+    var(--fuera-de-horario-2) var(--espacio-3) var(--espacio-6)
+  );
+}
+:host(.sin-clases) {
+  background: var(--bloque-sin-clases);
+}

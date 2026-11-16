@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  background: var(--pendiente-fondo);
+  border: var(--borde-fino) solid var(--pendiente-borde);
+  border-radius: var(--chip-radio);
+  padding: var(--espacio-3) var(--espacio-4);
+  cursor: grab;
+  font-size: var(--texto-sm);
+}
+.titulo {
+  font-weight: var(--peso-fuerte);
+}
+.detalle {
+  color: var(--color-texto-suave);
+}

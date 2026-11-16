@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-fuerte);
+  text-transform: uppercase;
+  letter-spacing: var(--espaciado-mayusculas);
+  padding: 1px var(--espacio-3);
+  border-radius: var(--radio-sm);
+}
+:host(.restriccion) {
+  color: var(--restriccion-texto);
+  background: var(--restriccion-fondo);
+}
+:host(.advertencia) {
+  color: var(--advertencia-texto);
+  background: var(--advertencia-fondo);
+}

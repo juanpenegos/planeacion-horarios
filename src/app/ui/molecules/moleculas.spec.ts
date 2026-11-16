@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { Incumplimiento } from '../../domain/models';
 import { VistaDeSesion } from '../vista-de-sesion';
-import { FilaAviso } from './fila-aviso';
-import { SelectorBloque } from './selector-bloque';
-import { TarjetaSesion } from './tarjeta-sesion';
+import { FilaAviso } from './fila-aviso/fila-aviso';
+import { SelectorBloque } from './selector-bloque/selector-bloque';
+import { TarjetaSesion } from './tarjeta-sesion/tarjeta-sesion';
 
 const SESION: VistaDeSesion = {
   id: 'A1-01-s1',

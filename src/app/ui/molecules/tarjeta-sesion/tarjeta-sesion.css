@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  height: 100%;
+  padding: var(--espacio-2) var(--espacio-3);
+  border: var(--borde-fino) solid var(--correcta-borde);
+  border-left-width: var(--borde-grueso);
+  border-radius: var(--chip-radio);
+  background: var(--correcta-fondo);
+  font-size: var(--texto-xs);
+  overflow: hidden;
+  cursor: grab;
+}
+:host(.restriccion) {
+  background: var(--restriccion-fondo);
+  border-color: var(--restriccion-borde);
+}
+:host(.advertencia) {
+  background: var(--advertencia-fondo);
+  border-color: var(--advertencia-borde);
+}
+:host(.pendiente) {
+  background: var(--pendiente-fondo);
+  border-color: var(--pendiente-borde);
+}
+.asignatura {
+  font-weight: var(--peso-fuerte);
+  font-size: var(--texto-sm);
+}
+.estado {
+  margin-top: auto;
+}

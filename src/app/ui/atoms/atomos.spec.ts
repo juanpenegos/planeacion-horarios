@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Boton } from './boton';
-import { Celda } from './celda';
-import { Chip } from './chip';
-import { EtiquetaSeveridad } from './etiqueta-severidad';
+import { Boton } from './boton/boton';
+import { Celda } from './celda/celda';
+import { Chip } from './chip/chip';
+import { EtiquetaSeveridad } from './etiqueta-severidad/etiqueta-severidad';
 
 @Component({
   imports: [Boton],
-  template: `<button appBoton variante="primario">Exportar</button><button appBoton>Otro</button>`,
+  template: `<button app-boton variante="primario">Exportar</button
+    ><button app-boton>Otro</button>`,
 })
 class PruebaBoton {}
 
@@ -18,9 +19,9 @@ describe('Átomos', () => {
     const [primario, secundario] = Array.from(
       (fixture.nativeElement as HTMLElement).querySelectorAll('button'),
     );
-    expect(primario.classList).toContain('boton-primario');
-    expect(secundario.classList).toContain('boton');
-    expect(secundario.classList).not.toContain('boton-primario');
+    expect(primario.classList).toContain('primario');
+    expect(secundario.classList).toContain('secundario');
+    expect(secundario.classList).not.toContain('primario');
   });
 
   it('el chip muestra asignatura y detalle', () => {

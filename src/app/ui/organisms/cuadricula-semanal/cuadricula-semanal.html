@@ -1,0 +1,54 @@
+<div
+  class="cuadricula"
+  role="grid"
+  aria-label="Horario semanal"
+  [style.grid-template-rows]="
+    'var(--alto-encabezado-cuadricula) repeat(' + horas().length + ', var(--alto-fila))'
+  "
+>
+  <div class="esquina" role="columnheader"><span class="solo-lectores">Hora</span></div>
+  @for (dia of dias; track dia) {
+    <div class="dia" role="columnheader">{{ nombreDia[dia] }}</div>
+  }
+  @for (hora of horas(); track hora; let fila = $index) {
+    <div class="hora" role="rowheader" [style.grid-row]="fila + 2">{{ formatoHora(hora) }}</div>
+    @for (dia of dias; track dia; let columna = $index) {
+      <app-celda
+        role="gridcell"
+        cdkDropList
+        cdkDropListSortingDisabled
+        [cdkDropListData]="{ dia: dia, horaInicio: hora }"
+        [cdkDropListEnterPredicate]="permitirSoltar"
+        (cdkDropListDropped)="alSoltar($event)"
+        [tipo]="tipo(dia, hora)"
+        [titulo]="tituloCelda(dia, hora)"
+        [attr.data-franja]="dia + '-' + hora"
+        [style.grid-row]="fila + 2"
+        [style.grid-column]="columna + 2"
+      >
+        @for (s of porCelda().get(dia + '-' + hora) ?? []; track s.vista.id) {
+          <app-tarjeta-sesion
+            cdkDrag
+            [cdkDragData]="s.vista.id"
+            [sesion]="s.vista"
+            class="en-cuadricula"
+            [class.abierta]="abierta() === s.vista.id"
+            [style.height]="'calc(' + duracion() + ' * var(--alto-fila) - 3px)'"
+            [style.left]="(s.carril.carril * 100) / s.carril.carriles + '%'"
+            [style.width]="'calc(' + 100 / s.carril.carriles + '% - 3px)'"
+          >
+            <app-selector-de-franja
+              textoBoton="Mover…"
+              [inicios]="inicios()"
+              [etiqueta]="s.vista.asignatura + ' sesión ' + s.vista.numero"
+              [permitirDevolver]="true"
+              (abierto)="abierta.set($event ? s.vista.id : null)"
+              (elegir)="programar.emit({ sesionId: s.vista.id, franja: $event })"
+              (devolver)="devolver.emit(s.vista.id)"
+            />
+          </app-tarjeta-sesion>
+        }
+      </app-celda>
+    }
+  }
+</div>

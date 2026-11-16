@@ -1,0 +1,13 @@
+.columnas {
+  display: grid;
+  grid-template-columns: var(--columna-izquierda) minmax(0, 1fr) var(--columna-derecha);
+  gap: var(--separacion);
+  padding: var(--separacion);
+  align-items: start;
+}
+/* Las variables CSS no funcionan dentro de @media: 1100px es el punto en que se apilan. */
+@media (max-width: 1100px) {
+  .columnas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

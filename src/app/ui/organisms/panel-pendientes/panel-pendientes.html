@@ -1,0 +1,27 @@
+<section class="panel">
+  <h2 class="panel-titulo">Sesiones pendientes ({{ sesiones().length }})</h2>
+  <ul
+    class="lista"
+    cdkDropList
+    cdkDropListSortingDisabled
+    [cdkDropListData]="'pendientes'"
+    (cdkDropListDropped)="alSoltar($event)"
+    aria-label="Sesiones pendientes"
+  >
+    @for (s of sesiones(); track s.id) {
+      <li cdkDrag [cdkDragData]="s.id">
+        <app-chip
+          [titulo]="s.asignatura"
+          [detalle]="'Sección ' + s.seccion + ' · sesión ' + s.numero + ' de ' + s.total"
+        />
+        <app-selector-de-franja
+          [inicios]="inicios()"
+          [etiqueta]="s.asignatura + ' sesión ' + s.numero"
+          (elegir)="programar.emit({ sesionId: s.id, franja: $event })"
+        />
+      </li>
+    } @empty {
+      <li class="vacio">{{ mensajeVacio() }}</li>
+    }
+  </ul>
+</section>

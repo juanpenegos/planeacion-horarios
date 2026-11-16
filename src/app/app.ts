@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Encabezado } from './ui/organisms/encabezado';
+import { Encabezado } from './ui/organisms/encabezado/encabezado';
 
 @Component({
   imports: [RouterOutlet, Encabezado],

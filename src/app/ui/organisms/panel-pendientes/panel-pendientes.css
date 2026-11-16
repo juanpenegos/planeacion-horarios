@@ -1,0 +1,23 @@
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  min-height: 48px;
+}
+.lista.cdk-drop-list-dragging {
+  outline: 2px dashed var(--pendiente-borde);
+  outline-offset: var(--espacio-1);
+  border-radius: var(--radio-md);
+}
+li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.vacio {
+  color: var(--color-texto-tenue);
+  font-size: var(--texto-sm);
+}

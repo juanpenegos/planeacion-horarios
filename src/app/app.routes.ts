@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { ParametrosPage } from './ui/pages/parametros-page';
-import { PlanDeEstudiosPage } from './ui/pages/plan-de-estudios-page';
-import { PlaneacionPage } from './ui/pages/planeacion-page';
-import { SeccionesPage } from './ui/pages/secciones-page';
+import { ParametrosPage } from './ui/pages/parametros-page/parametros-page';
+import { PlanDeEstudiosPage } from './ui/pages/plan-de-estudios-page/plan-de-estudios-page';
+import { PlaneacionPage } from './ui/pages/planeacion-page/planeacion-page';
+import { SeccionesPage } from './ui/pages/secciones-page/secciones-page';
 
 export const routes: Routes = [
   { path: 'planeacion', component: PlaneacionPage, title: 'Planeación' },

@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  border-left: var(--borde-grueso) solid var(--restriccion-borde);
+  background: var(--aviso-restriccion-fondo);
+  padding: var(--espacio-3) var(--espacio-4);
+  border-radius: 0 var(--radio-sm) var(--radio-sm) 0;
+  font-size: var(--texto-sm);
+}
+:host(.advertencia) {
+  border-left-color: var(--advertencia-borde);
+  background: var(--aviso-advertencia-fondo);
+}
+p {
+  margin: var(--espacio-2) 0 0;
+}

@@ -1,0 +1,39 @@
+header {
+  background: var(--color-vino);
+  color: var(--color-texto-encabezado);
+  padding: var(--espacio-6) var(--espacio-7);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-4) var(--espacio-8);
+  align-items: center;
+  justify-content: space-between;
+}
+h1 {
+  font-size: var(--texto-titulo);
+}
+p {
+  margin: var(--espacio-1) 0 0;
+  font-size: var(--texto-sm);
+  opacity: 0.9;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  padding: var(--espacio-3) var(--espacio-5);
+  border-radius: var(--radio-sm);
+}
+a:hover {
+  background: var(--color-encabezado-hover);
+}
+a.activo {
+  background: var(--color-encabezado-activo);
+  font-weight: var(--peso-fuerte);
+}
+a:focus-visible {
+  outline-color: var(--color-texto-encabezado);
+}

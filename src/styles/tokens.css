@@ -1,0 +1,96 @@
+/*
+ * Tokens de diseño de la aplicación.
+ * Identidad del prototipo del informe de avance: sobria, institucional, vino y Arial.
+ * Los componentes usan solo estas variables; ningún color ni tamaño va escrito a mano.
+ */
+:root {
+  /* ── Colores base ─────────────────────────────────────────── */
+  --color-fondo: #f4f5f7;
+  --color-superficie: #fff;
+  --color-texto: #1d2330;
+  --color-texto-suave: #444;
+  --color-texto-tenue: #666;
+  --color-vino: #7a1f2b;
+  --color-vino-oscuro: #5f1821;
+  --color-texto-encabezado: #fff;
+  --color-encabezado-hover: rgb(255 255 255 / 12%);
+  --color-encabezado-activo: rgb(255 255 255 / 22%);
+
+  /* ── Paneles ──────────────────────────────────────────────── */
+  --panel-fondo: var(--color-superficie);
+  --panel-borde: #d6d9de;
+  --panel-radio: var(--radio-lg);
+  --panel-relleno: var(--espacio-5);
+  --panel-titulo-color: #555;
+
+  /* ── Cuadrícula semanal ───────────────────────────────────── */
+  --cuadricula-encabezado: #eceef2;
+  --cuadricula-linea: #eceef2;
+  --horas-fondo: #fafbfc;
+  --horas-texto: var(--color-texto-tenue);
+  --fuera-de-horario-1: #f0f0f0;
+  --fuera-de-horario-2: #e6e6e6;
+  --bloque-sin-clases: #fde9c8;
+  --alto-fila: 36px;
+  --alto-encabezado-cuadricula: 32px;
+  --ancho-columna-horas: 56px;
+  --ancho-minimo-dia: 110px;
+  --ancho-minimo-cuadricula: 720px;
+
+  /* ── Estados de sesión ────────────────────────────────────── */
+  --pendiente-fondo: #e8eefc;
+  --pendiente-borde: #9fb4e8;
+  --correcta-fondo: #d8f0dd;
+  --correcta-borde: #63a874;
+  --restriccion-fondo: #fbd5d5;
+  --restriccion-borde: #c43c3c;
+  --restriccion-texto: #8b1f1f;
+  --advertencia-fondo: #fff1c4;
+  --advertencia-borde: #c9a227;
+  --advertencia-texto: #6b5200;
+
+  /* ── Avisos y estado del bloque ───────────────────────────── */
+  --aviso-restriccion-fondo: #fdf0f0;
+  --aviso-advertencia-fondo: #fffaea;
+  --listo-fondo: #eef6ef;
+  --no-listo-fondo: #fdf0f0;
+
+  /* ── Tipografía ───────────────────────────────────────────── */
+  --fuente: Arial, Helvetica, sans-serif;
+  --texto-xs: 11px;
+  --texto-sm: 12px;
+  --texto-titulo-panel: 13px;
+  --texto-base: 14px;
+  --texto-titulo: 18px;
+  --peso-fuerte: bold;
+  --espaciado-mayusculas: 0.03em;
+
+  /* ── Espacios ─────────────────────────────────────────────── */
+  --espacio-1: 2px;
+  --espacio-2: 4px;
+  --espacio-3: 6px;
+  --espacio-4: 8px;
+  --espacio-5: 10px;
+  --espacio-6: 12px;
+  --espacio-7: 16px;
+  --espacio-8: 24px;
+  --separacion: var(--espacio-6);
+
+  /* ── Bordes, radios y sombras ─────────────────────────────── */
+  --borde-fino: 1px;
+  --borde-grueso: 4px;
+  --radio-sm: 4px;
+  --radio-md: 6px;
+  --radio-lg: 8px;
+  --chip-radio: var(--radio-md);
+  --sombra-flotante: 0 4px 12px rgb(0 0 0 / 15%);
+  --foco: 2px solid var(--color-vino);
+
+  /* ── Diseño de la pantalla de planeación ──────────────────── */
+  --columna-izquierda: 270px;
+  --columna-derecha: 300px;
+
+  /* ── Capas ────────────────────────────────────────────────── */
+  --capa-sesion: 1;
+  --capa-flotante: 10;
+}

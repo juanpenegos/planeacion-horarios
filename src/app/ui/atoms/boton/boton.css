@@ -1,0 +1,30 @@
+:host {
+  padding: var(--espacio-3) var(--espacio-6);
+  border: var(--borde-fino) solid var(--panel-borde);
+  border-radius: var(--radio-sm);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  cursor: pointer;
+}
+:host(:hover:not(:disabled)) {
+  background: var(--cuadricula-encabezado);
+}
+:host(.primario) {
+  background: var(--color-vino);
+  border-color: var(--color-vino);
+  color: var(--color-texto-encabezado);
+}
+:host(.primario:hover:not(:disabled)) {
+  background: var(--color-vino-oscuro);
+}
+:host(.enlace) {
+  border: none;
+  background: none;
+  color: var(--color-vino);
+  text-decoration: underline;
+  padding: var(--espacio-1) var(--espacio-2);
+}
+:host(:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

@@ -1,0 +1,38 @@
+<details (toggle)="abierto.emit($any($event.target).open)">
+  <summary>{{ textoBoton() }}</summary>
+  <div class="formulario">
+    <label>
+      Día
+      <select
+        [attr.aria-label]="'Día para ' + etiqueta()"
+        (change)="dia.set($any($event.target).value)"
+      >
+        @for (d of diasDisponibles(); track d) {
+          <option [value]="d" [selected]="d === dia()">{{ nombreDia[d] }}</option>
+        }
+      </select>
+    </label>
+    <label>
+      Hora
+      <select #hora [attr.aria-label]="'Hora de inicio para ' + etiqueta()">
+        @for (h of horas(); track h) {
+          <option [value]="h">{{ formatoHora(h) }}</option>
+        }
+      </select>
+    </label>
+    <div class="acciones">
+      <button
+        app-boton
+        variante="primario"
+        type="button"
+        [disabled]="horas().length === 0"
+        (click)="elegir.emit({ dia: dia(), horaInicio: +hora.value })"
+      >
+        Programar
+      </button>
+      @if (permitirDevolver()) {
+        <button app-boton type="button" (click)="devolver.emit()">Devolver a pendientes</button>
+      }
+    </div>
+  </div>
+</details>

@@ -1,0 +1,13 @@
+<header>
+  <div>
+    <h1>Planeación de horarios de secciones</h1>
+    <p>Programa de Ingeniería de Sistemas · Datos reales: plan de estudios PEP 2025</p>
+  </div>
+  <nav aria-label="Páginas">
+    @for (enlace of enlaces; track enlace.ruta) {
+      <a [routerLink]="enlace.ruta" routerLinkActive="activo" ariaCurrentWhenActive="page">{{
+        enlace.texto
+      }}</a>
+    }
+  </nav>
+</header>

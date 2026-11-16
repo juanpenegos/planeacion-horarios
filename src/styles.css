@@ -1,40 +1,5 @@
-/* Identidad visual del prototipo del informe de avance (sección 7). */
-:root {
-  --color-fondo: #f4f5f7;
-  --color-texto: #1d2330;
-  --color-vino: #7a1f2b;
-  --color-texto-encabezado: #fff;
-
-  --panel-fondo: #fff;
-  --panel-borde: #d6d9de;
-  --panel-radio: 8px;
-  --panel-relleno: 10px;
-  --panel-titulo-color: #555;
-
-  --cuadricula-encabezado: #eceef2;
-  --horas-fondo: #fafbfc;
-  --horas-texto: #666;
-  --fuera-de-horario-1: #f0f0f0;
-  --fuera-de-horario-2: #e6e6e6;
-  --bloque-sin-clases: #fde9c8;
-
-  --pendiente-fondo: #e8eefc;
-  --pendiente-borde: #9fb4e8;
-  --chip-radio: 6px;
-  --correcta-fondo: #d8f0dd;
-  --correcta-borde: #63a874;
-  --restriccion-fondo: #fbd5d5;
-  --restriccion-borde: #c43c3c;
-  --advertencia-fondo: #fff1c4;
-  --advertencia-borde: #c9a227;
-
-  --aviso-restriccion-fondo: #fdf0f0;
-  --aviso-advertencia-fondo: #fffaea;
-  --listo-fondo: #eef6ef;
-  --no-listo-fondo: #fdf0f0;
-
-  --separacion: 12px;
-}
+/* Estilos globales: base del documento y clases compartidas. Los valores salen de los tokens. */
+@import './styles/tokens.css';
 
 * {
   box-sizing: border-box;
@@ -45,38 +10,14 @@ body {
   margin: 0;
   background: var(--color-fondo);
   color: var(--color-texto);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
 }
 
 h1,
 h2,
 h3 {
   margin: 0;
-}
-
-.panel {
-  background: var(--panel-fondo);
-  border: 1px solid var(--panel-borde);
-  border-radius: var(--panel-radio);
-  padding: var(--panel-relleno);
-}
-
-.panel + .panel {
-  margin-top: var(--separacion);
-}
-
-.panel-titulo {
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--panel-titulo-color);
-  margin: 0 0 8px;
-}
-
-.pagina {
-  padding: var(--separacion);
 }
 
 table {
@@ -90,10 +31,36 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-vino);
-  outline-offset: 2px;
+  outline: var(--foco);
+  outline-offset: var(--espacio-1);
 }
 
+/* Panel blanco con borde: se usa en todas las páginas. */
+.panel {
+  background: var(--panel-fondo);
+  border: var(--borde-fino) solid var(--panel-borde);
+  border-radius: var(--panel-radio);
+  padding: var(--panel-relleno);
+}
+
+.panel + .panel {
+  margin-top: var(--separacion);
+}
+
+.panel-titulo {
+  font-size: var(--texto-titulo-panel);
+  font-weight: var(--peso-fuerte);
+  text-transform: uppercase;
+  letter-spacing: var(--espaciado-mayusculas);
+  color: var(--panel-titulo-color);
+  margin: 0 0 var(--espacio-4);
+}
+
+.pagina {
+  padding: var(--separacion);
+}
+
+/* Texto visible solo para lectores de pantalla. */
 .solo-lectores {
   position: absolute;
   width: 1px;
@@ -101,36 +68,4 @@ button {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
-}
-
-/* Átomo botón (directiva appBoton). */
-.boton {
-  padding: 6px 12px;
-  border: 1px solid var(--panel-borde);
-  border-radius: 4px;
-  background: #fff;
-  color: var(--color-texto);
-  cursor: pointer;
-}
-.boton:hover:not(:disabled) {
-  background: var(--cuadricula-encabezado);
-}
-.boton-primario {
-  background: var(--color-vino);
-  border-color: var(--color-vino);
-  color: #fff;
-}
-.boton-primario:hover:not(:disabled) {
-  background: #5f1821;
-}
-.boton-enlace {
-  border: none;
-  background: none;
-  color: var(--color-vino);
-  text-decoration: underline;
-  padding: 2px 4px;
-}
-.boton:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
 }

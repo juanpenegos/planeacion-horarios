@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  overflow-x: auto;
+}
+.cuadricula {
+  display: grid;
+  grid-template-columns: var(--ancho-columna-horas) repeat(6, minmax(var(--ancho-minimo-dia), 1fr));
+  min-width: var(--ancho-minimo-cuadricula);
+  border: var(--borde-fino) solid var(--panel-borde);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+}
+.esquina,
+.dia {
+  background: var(--cuadricula-encabezado);
+  font-weight: var(--peso-fuerte);
+  font-size: var(--texto-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1;
+}
+.hora {
+  background: var(--horas-fondo);
+  color: var(--horas-texto);
+  font-size: var(--texto-xs);
+  text-align: right;
+  padding: var(--espacio-1) var(--espacio-3) 0 0;
+  border-top: var(--borde-fino) solid var(--cuadricula-linea);
+  grid-column: 1;
+}
+app-celda.cdk-drop-list-dragging {
+  outline: 2px dashed var(--pendiente-borde);
+  outline-offset: -2px;
+}
+.en-cuadricula {
+  position: absolute;
+  top: 1px;
+  z-index: var(--capa-sesion);
+}
+.en-cuadricula.abierta {
+  overflow: visible;
+  z-index: var(--capa-flotante);
+}
+.cdk-drag-placeholder {
+  opacity: 0.3;
+}

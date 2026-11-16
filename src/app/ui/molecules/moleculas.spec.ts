@@ -24,8 +24,12 @@ describe('Moléculas', () => {
     const html = fixture.nativeElement as HTMLElement;
     expect(html.classList).toContain('restriccion');
     expect(html.textContent).toContain('Modelización informacional');
-    expect(html.textContent).toContain('Sección 01 · sesión 1 de 2');
-    expect(html.textContent).toContain('✖ Restricción incumplida');
+    expect(html.textContent).toContain('Sec. 01 · 1 de 2');
+    // Símbolo visible y texto para lectores de pantalla: el color no es el único indicador.
+    expect(html.querySelector('.estado [aria-hidden]')?.textContent).toBe('✖');
+    expect(html.querySelector('.estado .solo-lectores')?.textContent).toBe(
+      'Restricción incumplida',
+    );
     expect(html.getAttribute('title')).toContain('jueves 14:00–16:00');
   });
 

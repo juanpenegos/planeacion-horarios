@@ -81,7 +81,12 @@ export class CuadriculaSemanal {
     return null;
   }
 
+  /**
+   * Si se suelta sobre una celda donde la sesión no cabe, la librería entrega la última
+   * celda válida por la que pasó; en ese caso no se programa y la sesión vuelve a su lugar.
+   */
   alSoltar(evento: CdkDragDrop<Franja, unknown, string>): void {
+    if (!evento.isPointerOverContainer) return;
     this.programar.emit({ sesionId: evento.item.data, franja: evento.container.data });
   }
 }

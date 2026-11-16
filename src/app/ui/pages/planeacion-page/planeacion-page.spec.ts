@@ -27,11 +27,13 @@ function soltar(
   componente: CuadriculaSemanal | PanelPendientes,
   sesionId: string,
   destino: Franja | string,
+  sobreElDestino = true,
 ) {
   const evento = {
     item: { data: sesionId },
     container: { data: destino },
     previousContainer: {},
+    isPointerOverContainer: sobreElDestino,
   } as never;
   componente.alSoltar(evento);
 }
@@ -65,6 +67,13 @@ describe('PlaneacionPage (HU-04)', () => {
     soltar(cuadricula.componentInstance, id, { dia: 'jueves', horaInicio: 14 });
     expect(store.programadas()[0].franja).toBe('jueves 14:00–16:00');
     soltar(pendientes.componentInstance, id, 'pendientes');
+    expect(store.pendientes().length).toBe(3);
+  });
+
+  it('si se suelta fuera de una celda válida, la sesión no se programa', () => {
+    const { fixture, store } = montar();
+    const cuadricula = fixture.debugElement.query(By.directive(CuadriculaSemanal));
+    soltar(cuadricula.componentInstance, `${BD1}-01-s1`, { dia: 'viernes', horaInicio: 10 }, false);
     expect(store.pendientes().length).toBe(3);
   });
 

@@ -45,3 +45,12 @@ app-celda.cdk-drop-list-dragging {
 .cdk-drag-placeholder {
   opacity: 0.3;
 }
+/*
+ * Mientras se arrastra, las sesiones ya programadas no deben tapar las celdas que
+ * ocupan: así se puede soltar en una franja cubierta por otra sesión (por ejemplo,
+ * a las 15:00 cuando hay una sesión de 14:00 a 16:00).
+ */
+app-celda.cdk-drop-list-receiving .en-cuadricula,
+app-celda.cdk-drop-list-dragging .en-cuadricula {
+  pointer-events: none;
+}

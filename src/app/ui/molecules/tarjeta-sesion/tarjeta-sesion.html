@@ -1,8 +1,11 @@
 <span class="asignatura">{{ sesion().asignatura }}</span>
 <span class="detalle"
-  >Sección {{ sesion().seccion }} · sesión {{ sesion().numero }} de {{ sesion().total }}</span
+  >Sec. {{ sesion().seccion }} · {{ sesion().numero }} de {{ sesion().total }}</span
 >
-<span class="estado"
-  ><span aria-hidden="true">{{ estado().simbolo }}</span> {{ estado().texto }}</span
->
-<ng-content />
+<div class="pie">
+  <span class="estado"
+    ><span aria-hidden="true">{{ estado().simbolo }}</span>
+    <span class="solo-lectores">{{ estado().texto }}</span></span
+  >
+  <ng-content />
+</div>

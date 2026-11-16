@@ -23,6 +23,8 @@ export class PanelPendientes {
   readonly devolver = output<string>();
 
   alSoltar(evento: CdkDragDrop<string, unknown, string>): void {
-    if (evento.previousContainer !== evento.container) this.devolver.emit(evento.item.data);
+    if (evento.isPointerOverContainer && evento.previousContainer !== evento.container) {
+      this.devolver.emit(evento.item.data);
+    }
   }
 }

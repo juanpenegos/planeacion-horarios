@@ -43,3 +43,8 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
+
+# Resultados temporales de Playwright
+/test-results
+/playwright-report
+/blob-report

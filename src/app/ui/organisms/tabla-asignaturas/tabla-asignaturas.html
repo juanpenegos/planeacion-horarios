@@ -1,0 +1,41 @@
+<div class="contenedor">
+  <table>
+    <caption class="solo-lectores">
+      Asignaturas del plan de estudios PEP 2025
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Semestre</th>
+        <th scope="col">Asignatura</th>
+        <th scope="col">Carácter</th>
+        <th scope="col">Componente</th>
+        <th scope="col" class="numero">Créditos</th>
+        <th scope="col" class="numero">Horas directas</th>
+        <th scope="col">Programable</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (a of asignaturas(); track a.id) {
+        <tr [class.no-programable]="!a.programable">
+          <td>{{ a.semestre }}</td>
+          <td>{{ a.nombre }}</td>
+          <td>{{ a.caracter }}</td>
+          <td>{{ nombreAlcance[a.alcance] }}</td>
+          <td class="numero">{{ a.creditos }}</td>
+          <td class="numero">{{ a.horasDirectasSemana }}</td>
+          <td>
+            @if (a.programable) {
+              <span class="si"><span aria-hidden="true">✔</span> Sí</span>
+            } @else {
+              <span class="no">No (fuera del alcance)</span>
+            }
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="7" class="vacio">Ninguna asignatura coincide con el filtro.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,81 @@
+<section class="panel" [attr.aria-label]="grupo().nombre" [attr.data-grupo]="grupo().id">
+  <div class="cabecera">
+    <h3>{{ grupo().nombre }}</h3>
+    @if (grupo().bloqueId !== null) {
+      <button app-boton variante="enlace" type="button" (click)="eliminarBloque.emit()">
+        Eliminar bloque
+      </button>
+    }
+  </div>
+
+  @if (grupo().secciones.length > 0) {
+    <table>
+      <caption class="solo-lectores">
+        Secciones de
+        {{
+          grupo().nombre
+        }}
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Asignatura</th>
+          <th scope="col">Sección</th>
+          <th scope="col" class="numero">Horas</th>
+          <th scope="col" class="numero">Sesiones</th>
+          <th scope="col"><span class="solo-lectores">Acciones</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (s of grupo().secciones; track s.id) {
+          <tr>
+            <td>{{ s.asignatura }}</td>
+            <td>{{ s.numero }}</td>
+            <td class="numero">{{ s.horas }}</td>
+            <td class="numero">{{ s.sesiones }}</td>
+            <td class="accion">
+              <button
+                app-boton
+                variante="enlace"
+                type="button"
+                [attr.aria-label]="'Eliminar ' + s.asignatura + ' sección ' + s.numero"
+                (click)="eliminarSeccion.emit(s.id)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p class="vacio">Todavía no hay secciones.</p>
+  }
+
+  @if (grupo().disponibles.length > 0) {
+    <div class="agregar">
+      <label>
+        Asignatura
+        <select #asignatura [attr.aria-label]="'Asignatura para ' + grupo().nombre">
+          @for (a of grupo().disponibles; track a.id) {
+            <option [value]="a.id">{{ a.nombre }} ({{ a.horasDirectasSemana }} h)</option>
+          }
+        </select>
+      </label>
+      <button
+        app-boton
+        variante="primario"
+        type="button"
+        (click)="crearSeccion.emit(asignatura.value)"
+      >
+        Crear sección
+      </button>
+      @if (grupo().bloqueId !== null && grupo().disponibles.length > 1) {
+        <button app-boton type="button" (click)="crearTodas.emit()">
+          Crear una sección de cada asignatura
+        </button>
+      }
+    </div>
+  } @else if (grupo().bloqueId !== null) {
+    <p class="vacio">Todas las asignaturas del semestre ya tienen sección en este bloque.</p>
+  }
+</section>

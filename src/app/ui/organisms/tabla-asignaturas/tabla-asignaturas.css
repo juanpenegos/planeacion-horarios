@@ -1,0 +1,32 @@
+.contenedor {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  font-size: var(--texto-sm);
+}
+th,
+td {
+  text-align: left;
+  padding: var(--espacio-3) var(--espacio-4);
+  border-bottom: var(--borde-fino) solid var(--cuadricula-linea);
+}
+th {
+  background: var(--cuadricula-encabezado);
+  font-weight: var(--peso-fuerte);
+  white-space: nowrap;
+}
+.numero {
+  text-align: right;
+}
+.no-programable {
+  color: var(--color-texto-tenue);
+}
+.si {
+  color: var(--correcta-borde);
+  font-weight: var(--peso-fuerte);
+}
+.vacio {
+  text-align: center;
+  color: var(--color-texto-tenue);
+}

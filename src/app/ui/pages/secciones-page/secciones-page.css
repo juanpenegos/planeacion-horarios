@@ -1,3 +1,37 @@
 :host {
   display: block;
 }
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--separacion);
+  max-width: 960px;
+}
+.ayuda {
+  margin: 0 0 var(--espacio-4);
+  font-size: var(--texto-sm);
+  color: var(--color-texto-suave);
+}
+.nuevo-bloque {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-4);
+  align-items: center;
+}
+.nuevo-bloque label {
+  display: flex;
+  gap: var(--espacio-3);
+  align-items: center;
+}
+.nuevo-bloque select {
+  padding: var(--espacio-3);
+  border: var(--borde-fino) solid var(--panel-borde);
+  border-radius: var(--radio-sm);
+}
+.error {
+  margin: var(--espacio-4) 0 0;
+  padding: var(--espacio-3) var(--espacio-4);
+  border-left: var(--borde-grueso) solid var(--restriccion-borde);
+  background: var(--aviso-restriccion-fondo);
+  font-size: var(--texto-sm);
+}

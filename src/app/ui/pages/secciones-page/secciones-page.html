@@ -1,5 +1,36 @@
 <div class="pagina">
-  <section class="panel">
-    <h2 class="panel-titulo">Secciones</h2>
+  <section class="panel" aria-labelledby="titulo-secciones">
+    <h2 class="panel-titulo" id="titulo-secciones">Secciones</h2>
+    <p class="ayuda">
+      Crea un bloque de semestre y abre en él las secciones de sus asignaturas obligatorias. Cada
+      sección recibe sus sesiones pendientes según sus horas directas. Solo se ofrecen asignaturas
+      programables.
+    </p>
+    <div class="nuevo-bloque">
+      <label>
+        Semestre
+        <select #semestre>
+          @for (s of semestres; track s) {
+            <option [value]="s">Semestre {{ s }}</option>
+          }
+        </select>
+      </label>
+      <button app-boton variante="primario" type="button" (click)="crearBloque(semestre.value)">
+        Crear bloque
+      </button>
+    </div>
+    @if (error()) {
+      <p class="error" role="alert">{{ error() }}</p>
+    }
   </section>
+
+  @for (grupo of store.gruposDeSecciones(); track grupo.id) {
+    <app-grupo-de-secciones
+      [grupo]="grupo"
+      (crearSeccion)="crearSeccion($event, grupo.bloqueId)"
+      (crearTodas)="crearTodas(grupo.bloqueId)"
+      (eliminarSeccion)="eliminarSeccion($event)"
+      (eliminarBloque)="eliminarBloque(grupo.bloqueId)"
+    />
+  }
 </div>

@@ -3,6 +3,7 @@ import { AsignaturasRepository } from '../data/asignaturas.repository';
 import { ArchivoDePlaneacion } from '../data/archivo-de-planeacion';
 import { PlaneacionRepository } from '../data/planeacion.repository';
 import {
+  Asignatura,
   Franja,
   Incumplimiento,
   Parametros,
@@ -23,6 +24,25 @@ import { Verificador } from '../domain/services/verificador';
 
 /** Identificador del grupo de secciones fuera de bloque en el selector. */
 export const FUERA_DE_BLOQUE = 'fuera-de-bloque';
+
+/** Sección tal como se lista en la página Secciones. */
+export interface VistaDeSeccion {
+  readonly id: string;
+  readonly asignatura: string;
+  readonly numero: string;
+  readonly sesiones: number;
+  readonly horas: number;
+}
+
+/** Un bloque de semestre (o el grupo fuera de bloque) con sus secciones. */
+export interface GrupoDeSecciones {
+  readonly id: string;
+  readonly nombre: string;
+  readonly bloqueId: string | null;
+  readonly secciones: readonly VistaDeSeccion[];
+  /** Asignaturas programables que todavía se pueden agregar. */
+  readonly disponibles: readonly Asignatura[];
+}
 
 /**
  * Almacén de la planeación con signals. Une datos, reglas y verificación:
@@ -111,8 +131,50 @@ export class PlaneacionStore {
     return this.resumidor.estadoDeSesion(sesion, this.incumplimientos());
   }
 
+  /** Bloques con sus secciones y las asignaturas que aún se pueden agregar (HU-03). */
+  readonly gruposDeSecciones = computed<GrupoDeSecciones[]>(() => {
+    const p = this.estado();
+    const vista = (bloqueId: string | null): VistaDeSeccion[] =>
+      this.editor.seccionesDe(p, bloqueId).map((s) => ({
+        id: s.id,
+        asignatura: this.plan.buscar(s.asignaturaId)?.nombre ?? s.asignaturaId,
+        numero: s.numero,
+        sesiones: p.sesiones.filter((x) => x.seccionId === s.id).length,
+        horas: this.plan.buscar(s.asignaturaId)?.horasDirectasSemana ?? 0,
+      }));
+    const bloques = p.bloques.map((b) => {
+      const usadas = new Set(this.editor.seccionesDe(p, b.id).map((s) => s.asignaturaId));
+      return {
+        id: b.id,
+        nombre: nombreDeBloque(b),
+        bloqueId: b.id as string | null,
+        secciones: vista(b.id),
+        disponibles: this.plan.enBloque(b.semestre).filter((a) => !usadas.has(a.id)),
+      };
+    });
+    return [
+      ...bloques,
+      {
+        id: FUERA_DE_BLOQUE,
+        nombre: 'Fuera de bloque (electivas de profundización y Trabajo de grado)',
+        bloqueId: null,
+        secciones: vista(null),
+        disponibles: this.plan.fueraDeBloque(),
+      },
+    ];
+  });
+
   crearBloque(semestre: Semestre): void {
+    const antes = this.estado().bloques.length;
     this.estado.update((p) => this.editor.crearBloque(p, semestre));
+    const nuevo = this.estado().bloques[antes];
+    if (antes === 0 && nuevo) this.grupoSeleccionado.set(nuevo.id);
+  }
+
+  /** Crea una sección de cada asignatura del semestre que aún no esté en el bloque. */
+  crearSeccionesDelBloque(bloqueId: string): void {
+    const grupo = this.gruposDeSecciones().find((g) => g.id === bloqueId);
+    for (const asignatura of grupo?.disponibles ?? []) this.crearSeccion(asignatura.id, bloqueId);
   }
 
   eliminarBloque(bloqueId: string): void {

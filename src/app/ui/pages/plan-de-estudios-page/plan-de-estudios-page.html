@@ -1,5 +1,66 @@
 <div class="pagina">
-  <section class="panel">
-    <h2 class="panel-titulo">Plan de estudios</h2>
+  <section class="panel" aria-labelledby="titulo-plan">
+    <h2 class="panel-titulo" id="titulo-plan">Plan de estudios PEP 2025</h2>
+
+    <div class="cifras">
+      <p class="cifra">
+        <strong>{{ total }}</strong> asignaturas
+      </p>
+      <p class="cifra">
+        <strong>{{ programables }}</strong> programables
+        <span class="detalle"
+          >({{ enBloque }} en bloque · {{ fueraDeBloque }} fuera de bloque)</span
+        >
+      </p>
+      <p class="cifra">
+        <strong>{{ total - programables }}</strong> fuera del alcance
+        <span class="detalle">(fundamentación y libre escogencia)</span>
+      </p>
+    </div>
+
+    <h3 class="subtitulo">Créditos por semestre</h3>
+    <table class="creditos">
+      <caption class="solo-lectores">
+        Créditos por semestre
+      </caption>
+      <thead>
+        <tr>
+          @for (c of creditos; track c.semestre) {
+            <th scope="col">{{ c.semestre }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          @for (c of creditos; track c.semestre) {
+            <td>{{ c.creditos }}</td>
+          }
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel" aria-labelledby="titulo-asignaturas">
+    <h2 class="panel-titulo" id="titulo-asignaturas">Asignaturas ({{ filtradas().length }})</h2>
+    <div class="filtros">
+      <label>
+        Semestre
+        <select (change)="semestre.set($any($event.target).value)">
+          <option value="todos">Todos</option>
+          @for (s of semestres; track s) {
+            <option [value]="s">{{ s }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          [checked]="soloProgramables()"
+          (change)="soloProgramables.set($any($event.target).checked)"
+        />
+        Solo programables
+      </label>
+    </div>
+    <app-tabla-asignaturas [asignaturas]="filtradas()" />
   </section>
 </div>

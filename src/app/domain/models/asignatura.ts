@@ -5,6 +5,14 @@ export type Semestre = (typeof SEMESTRES)[number];
 /** Componente al que pertenece la asignatura dentro del plan. */
 export type Alcance = 'bloque' | 'fuera-de-bloque' | 'fundamentacion' | 'libre-escogencia';
 
+/** Nombre del componente tal como se muestra al Director. */
+export const NOMBRE_ALCANCE: Readonly<Record<Alcance, string>> = {
+  bloque: 'Bloque de semestre',
+  'fuera-de-bloque': 'Fuera de bloque',
+  fundamentacion: 'Fundamentación',
+  'libre-escogencia': 'Libre escogencia',
+};
+
 /** Espacio académico del plan de estudios. */
 export interface Asignatura {
   readonly id: string;

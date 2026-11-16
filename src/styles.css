@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+/* Identidad visual del prototipo del informe de avance (sección 7). */
+:root {
+  --color-fondo: #f4f5f7;
+  --color-texto: #1d2330;
+  --color-vino: #7a1f2b;
+  --color-texto-encabezado: #fff;
+
+  --panel-fondo: #fff;
+  --panel-borde: #d6d9de;
+  --panel-radio: 8px;
+  --panel-relleno: 10px;
+  --panel-titulo-color: #555;
+
+  --cuadricula-encabezado: #eceef2;
+  --horas-fondo: #fafbfc;
+  --horas-texto: #666;
+  --fuera-de-horario-1: #f0f0f0;
+  --fuera-de-horario-2: #e6e6e6;
+  --bloque-sin-clases: #fde9c8;
+
+  --pendiente-fondo: #e8eefc;
+  --pendiente-borde: #9fb4e8;
+  --chip-radio: 6px;
+  --correcta-fondo: #d8f0dd;
+  --correcta-borde: #63a874;
+  --restriccion-fondo: #fbd5d5;
+  --restriccion-borde: #c43c3c;
+  --advertencia-fondo: #fff1c4;
+  --advertencia-borde: #c9a227;
+
+  --aviso-restriccion-fondo: #fdf0f0;
+  --aviso-advertencia-fondo: #fffaea;
+  --listo-fondo: #eef6ef;
+  --no-listo-fondo: #fdf0f0;
+
+  --separacion: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.panel {
+  background: var(--panel-fondo);
+  border: 1px solid var(--panel-borde);
+  border-radius: var(--panel-radio);
+  padding: var(--panel-relleno);
+}
+
+.panel + .panel {
+  margin-top: var(--separacion);
+}
+
+.panel-titulo {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--panel-titulo-color);
+  margin: 0 0 8px;
+}
+
+.pagina {
+  padding: var(--separacion);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-vino);
+  outline-offset: 2px;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

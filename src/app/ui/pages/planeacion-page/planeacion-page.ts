@@ -1,5 +1,6 @@
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { Descargador } from '../../../data/descargador';
 import { ErrorDePlaneacion } from '../../../domain/models';
 import { FUERA_DE_BLOQUE, PlaneacionStore } from '../../../state/planeacion.store';
 import { SelectorBloque } from '../../molecules/selector-bloque/selector-bloque';
@@ -30,12 +31,20 @@ import { PlantillaTresColumnas } from '../../templates/plantilla-tres-columnas/p
 })
 export class PlaneacionPage {
   readonly store = inject(PlaneacionStore);
+  private readonly descargador = inject(Descargador);
   readonly fueraDeBloque = FUERA_DE_BLOQUE;
   readonly error = signal<string | null>(null);
 
   programar({ sesionId, franja }: Programacion): void {
     this.error.set(null);
     this.store.programar(sesionId, franja);
+  }
+
+  /** Descarga la oferta del bloque como CSV (HU-06). */
+  exportarCsv(): void {
+    const archivo = this.store.exportarCsv();
+    if (archivo)
+      this.descargador.descargar(archivo.nombre, archivo.contenido, 'text/csv;charset=utf-8');
   }
 
   marcarComoListo(): void {

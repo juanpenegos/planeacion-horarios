@@ -39,6 +39,7 @@
       [marcado]="store.marcadoComoListo()"
       [esBloque]="store.grupoSeleccionado() !== fueraDeBloque"
       (marcarListo)="marcarComoListo()"
+      (exportar)="exportarCsv()"
     />
     @if (error()) {
       <p class="error" role="alert">{{ error() }}</p>

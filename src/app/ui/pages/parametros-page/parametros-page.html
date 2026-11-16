@@ -10,4 +10,10 @@
       <p class="guardado" role="status"><span aria-hidden="true">✔</span> Parámetros guardados</p>
     }
   </section>
+  <app-panel-copia
+    [mensaje]="mensajeCopia()"
+    [error]="errorCopia()"
+    (exportar)="exportarJson()"
+    (importar)="importarJson($event)"
+  />
 </div>

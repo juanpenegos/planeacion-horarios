@@ -25,4 +25,5 @@ export class PanelVerificacion {
   readonly esBloque = input<boolean>(true);
 
   readonly marcarListo = output<void>();
+  readonly exportar = output<void>();
 }

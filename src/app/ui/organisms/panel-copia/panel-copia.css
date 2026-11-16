@@ -1,0 +1,29 @@
+.ayuda {
+  margin: 0 0 var(--espacio-6);
+  font-size: var(--texto-sm);
+  color: var(--color-texto-suave);
+}
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-6);
+  align-items: center;
+}
+.importar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  font-size: var(--texto-sm);
+}
+.mensaje {
+  margin: var(--espacio-6) 0 0;
+  font-weight: var(--peso-fuerte);
+  color: var(--correcta-borde);
+}
+.error {
+  margin: var(--espacio-6) 0 0;
+  padding: var(--espacio-3) var(--espacio-4);
+  border-left: var(--borde-grueso) solid var(--restriccion-borde);
+  background: var(--aviso-restriccion-fondo);
+  font-size: var(--texto-sm);
+}

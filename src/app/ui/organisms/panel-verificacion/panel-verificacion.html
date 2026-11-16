@@ -34,9 +34,17 @@
         >
           Marcar como listo para publicar
         </button>
-        @if (!resumen().listoParaPublicar) {
-          <p class="ayuda">Se habilita con 0 restricciones y 0 sesiones pendientes.</p>
-        }
+      }
+      <button
+        app-boton
+        type="button"
+        [disabled]="!resumen().listoParaPublicar"
+        (click)="exportar.emit()"
+      >
+        Exportar (CSV)
+      </button>
+      @if (!resumen().listoParaPublicar) {
+        <p class="ayuda">Se habilitan con 0 restricciones y 0 sesiones pendientes.</p>
       }
     </div>
   }

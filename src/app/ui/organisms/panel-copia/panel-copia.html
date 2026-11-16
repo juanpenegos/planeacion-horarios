@@ -1,0 +1,25 @@
+<section class="panel" aria-labelledby="titulo-copia">
+  <h2 class="panel-titulo" id="titulo-copia">Copia de la planeación</h2>
+  <p class="ayuda">
+    La planeación se guarda en este navegador. Para llevarla a otro equipo o conservar una copia,
+    expórtala como archivo JSON e impórtala después.
+  </p>
+  <div class="acciones">
+    <button app-boton type="button" (click)="exportar.emit()">Exportar planeación (JSON)</button>
+    <label class="importar">
+      <span>Importar planeación (JSON)</span>
+      <input
+        type="file"
+        accept="application/json,.json"
+        data-campo="importar"
+        (change)="alElegirArchivo($event)"
+      />
+    </label>
+  </div>
+  @if (mensaje()) {
+    <p class="mensaje" role="status"><span aria-hidden="true">✔</span> {{ mensaje() }}</p>
+  }
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+</section>

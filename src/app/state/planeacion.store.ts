@@ -13,6 +13,7 @@ import {
   nombreDeBloque,
   planeacionVacia,
 } from '../domain/models';
+import { ExportadorCsv } from '../domain/services/exportador-csv';
 import { formatoFranja } from '../domain/services/formato';
 import { cabeEnHorario, iniciosPorDia } from '../domain/services/franjas';
 import { VistaDeSesion } from './vista-de-sesion';
@@ -54,6 +55,7 @@ export class PlaneacionStore {
   private readonly archivo = new ArchivoDePlaneacion();
   private readonly verificador = new Verificador(crearRegistroDelDominio());
   private readonly resumidor = new ResumenDeBloque();
+  private readonly exportadorCsv = new ExportadorCsv();
 
   readonly plan = new PlanDeEstudios(inject(AsignaturasRepository).todas());
   private readonly editor = new EditorDePlaneacion(this.plan);
@@ -209,6 +211,17 @@ export class PlaneacionStore {
     const id = this.bloqueIdSeleccionado();
     if (id === null) return;
     this.estado.update((p) => this.editor.marcarListo(p, id, this.resumen()));
+  }
+
+  /** CSV de la oferta del bloque seleccionado (HU-06), o nulo si no está listo para publicar. */
+  exportarCsv(): { nombre: string; contenido: string } | null {
+    const id = this.bloqueIdSeleccionado();
+    const bloque = id === null ? undefined : this.editor.bloque(this.estado(), id);
+    if (!bloque || !this.resumen().listoParaPublicar) return null;
+    return {
+      nombre: `oferta-semestre-${bloque.semestre}-seccion-${bloque.numero}.csv`,
+      contenido: this.exportadorCsv.exportar(this.contexto(), nombreDeBloque(bloque)),
+    };
   }
 
   exportarJson(): string {

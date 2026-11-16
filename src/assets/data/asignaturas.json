@@ -1,0 +1,582 @@
+[
+  {
+    "id": "A01",
+    "semestre": "I",
+    "nombre": "Matemáticas 1",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A02",
+    "semestre": "I",
+    "nombre": "Ciencias para la vida",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A03",
+    "semestre": "I",
+    "nombre": "Fundamentos de ingeniería",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A04",
+    "semestre": "I",
+    "nombre": "Estructuración del pensamiento 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A05",
+    "semestre": "I",
+    "nombre": "Desarrollo de sistemas de información 1",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A06",
+    "semestre": "I",
+    "nombre": "Principios de sistemas de información",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A07",
+    "semestre": "II",
+    "nombre": "Matemáticas 2",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A08",
+    "semestre": "II",
+    "nombre": "Física 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A09",
+    "semestre": "II",
+    "nombre": "Desafíos desde las ciencias para la ingeniería 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A10",
+    "semestre": "II",
+    "nombre": "Estructuración del pensamiento 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A11",
+    "semestre": "II",
+    "nombre": "Electiva libre 1",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "libre-escogencia",
+    "programable": false
+  },
+  {
+    "id": "A12",
+    "semestre": "II",
+    "nombre": "Álgebra lineal",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A13",
+    "semestre": "II",
+    "nombre": "Desarrollo de sistemas de información 2",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A14",
+    "semestre": "III",
+    "nombre": "Bioestadística y probabilidad",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A15",
+    "semestre": "III",
+    "nombre": "Física 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A16",
+    "semestre": "III",
+    "nombre": "Desafíos desde las ciencias para la ingeniería 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A17",
+    "semestre": "III",
+    "nombre": "Idiomas 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A18",
+    "semestre": "III",
+    "nombre": "Electiva libre 2",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "libre-escogencia",
+    "programable": false
+  },
+  {
+    "id": "A19",
+    "semestre": "III",
+    "nombre": "Desarrollo de sistemas de información 3",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A20",
+    "semestre": "III",
+    "nombre": "Estructuras de datos",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A21",
+    "semestre": "IV",
+    "nombre": "Territorio y sostenibilidad",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A22",
+    "semestre": "IV",
+    "nombre": "Idiomas 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A23",
+    "semestre": "IV",
+    "nombre": "Bases de datos 1",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A24",
+    "semestre": "IV",
+    "nombre": "Modelización informacional",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A25",
+    "semestre": "IV",
+    "nombre": "Infraestructura TI 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A26",
+    "semestre": "IV",
+    "nombre": "Estructuras de sistemas",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A27",
+    "semestre": "IV",
+    "nombre": "Proyecto núcleo 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A28",
+    "semestre": "V",
+    "nombre": "Economía y finanzas",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A29",
+    "semestre": "V",
+    "nombre": "Fundamentos de ecología",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A30",
+    "semestre": "V",
+    "nombre": "Idiomas 3",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A31",
+    "semestre": "V",
+    "nombre": "Electiva libre 3",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "libre-escogencia",
+    "programable": false
+  },
+  {
+    "id": "A32",
+    "semestre": "V",
+    "nombre": "Ingeniería de software 1",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A33",
+    "semestre": "V",
+    "nombre": "Bases de datos 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A34",
+    "semestre": "V",
+    "nombre": "Infraestructura TI 2",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A35",
+    "semestre": "VI",
+    "nombre": "Formulación de proyectos",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A36",
+    "semestre": "VI",
+    "nombre": "Idiomas 4",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A37",
+    "semestre": "VI",
+    "nombre": "Ingeniería de software 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A38",
+    "semestre": "VI",
+    "nombre": "Complejidad algorítmica",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A39",
+    "semestre": "VI",
+    "nombre": "Infraestructura TI 3",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A40",
+    "semestre": "VI",
+    "nombre": "Modelos y simulación de sistemas de información",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A41",
+    "semestre": "VI",
+    "nombre": "Proyecto núcleo 2",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A42",
+    "semestre": "VII",
+    "nombre": "Conceptualización de proyectos de ingeniería",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A43",
+    "semestre": "VII",
+    "nombre": "Gestión de proyectos",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A44",
+    "semestre": "VII",
+    "nombre": "Ingeniería de software 3",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A45",
+    "semestre": "VII",
+    "nombre": "Lenguajes de dominio específico",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A46",
+    "semestre": "VII",
+    "nombre": "Seguridad de la información",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A47",
+    "semestre": "VII",
+    "nombre": "Labor social",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A48",
+    "semestre": "VII",
+    "nombre": "Electiva de profundización en ingeniería de sistemas 1",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fuera-de-bloque",
+    "programable": true
+  },
+  {
+    "id": "A49",
+    "semestre": "VIII",
+    "nombre": "Política, sociedad y ciudadanía",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A50",
+    "semestre": "VIII",
+    "nombre": "Electiva en pensamiento innovador o pensamiento emprendedor",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "libre-escogencia",
+    "programable": false
+  },
+  {
+    "id": "A51",
+    "semestre": "VIII",
+    "nombre": "Sistemas inteligentes",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 4,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A52",
+    "semestre": "VIII",
+    "nombre": "Gestión de tecnología e innovación",
+    "caracter": "Obligatoria",
+    "creditos": 4,
+    "horasDirectasSemana": 6,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A53",
+    "semestre": "VIII",
+    "nombre": "Preparación para la vida laboral",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fundamentacion",
+    "programable": false
+  },
+  {
+    "id": "A54",
+    "semestre": "VIII",
+    "nombre": "Diseño de proyectos de ingeniería",
+    "caracter": "Obligatoria",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "bloque",
+    "programable": true
+  },
+  {
+    "id": "A55",
+    "semestre": "VIII",
+    "nombre": "Electiva de profundización en ingeniería de sistemas 2",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fuera-de-bloque",
+    "programable": true
+  },
+  {
+    "id": "A56",
+    "semestre": "IX",
+    "nombre": "Trabajo de grado",
+    "caracter": "Electiva",
+    "creditos": 12,
+    "horasDirectasSemana": 2,
+    "alcance": "fuera-de-bloque",
+    "programable": true
+  },
+  {
+    "id": "A57",
+    "semestre": "IX",
+    "nombre": "Electiva libre 4",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "libre-escogencia",
+    "programable": false
+  },
+  {
+    "id": "A58",
+    "semestre": "IX",
+    "nombre": "Electiva de profundización en ingeniería de sistemas 3",
+    "caracter": "Electiva",
+    "creditos": 2,
+    "horasDirectasSemana": 2,
+    "alcance": "fuera-de-bloque",
+    "programable": true
+  }
+]

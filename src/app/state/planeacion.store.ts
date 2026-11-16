@@ -9,8 +9,12 @@ import {
   Planeacion,
   Semestre,
   Sesion,
+  nombreDeBloque,
   planeacionVacia,
 } from '../domain/models';
+import { formatoFranja } from '../domain/services/formato';
+import { cabeEnHorario, iniciosPorDia } from '../domain/services/franjas';
+import { VistaDeSesion } from './vista-de-sesion';
 import { crearRegistroDelDominio } from '../domain/rules/registro-de-reglas';
 import { EditorDePlaneacion } from '../domain/services/editor-de-planeacion';
 import { PlanDeEstudios } from '../domain/services/plan-de-estudios';
@@ -45,13 +49,48 @@ export class PlaneacionStore {
     this.grupoSeleccionado() === FUERA_DE_BLOQUE ? null : this.grupoSeleccionado(),
   );
 
-  readonly sesionesDelGrupo = computed<readonly Sesion[]>(
-    () => this.editor.contextoDe(this.estado(), this.bloqueIdSeleccionado()).sesiones,
+  /** Opciones del selector: los bloques creados y el grupo de fuera de bloque. */
+  readonly opcionesDeBloque = computed(() => [
+    ...this.estado().bloques.map((b) => ({ id: b.id, nombre: nombreDeBloque(b) })),
+    { id: FUERA_DE_BLOQUE, nombre: 'Fuera de bloque (electivas y Trabajo de grado)' },
+  ]);
+
+  /** Horas de inicio permitidas por día según los parámetros vigentes. */
+  readonly inicios = computed(() => iniciosPorDia(this.parametros()));
+
+  private readonly contexto = computed(() =>
+    this.editor.contextoDe(this.estado(), this.bloqueIdSeleccionado()),
   );
 
+  readonly sesionesDelGrupo = computed<readonly Sesion[]>(() => this.contexto().sesiones);
+
+  /** Verificación de todo el bloque; se recalcula con cada cambio. */
   readonly incumplimientos = computed<Incumplimiento[]>(() =>
-    this.verificador.verificar(this.editor.contextoDe(this.estado(), this.bloqueIdSeleccionado())),
+    this.verificador.verificar(this.contexto()),
   );
+
+  /** Sesiones del bloque listas para mostrarse. */
+  readonly vistas = computed<VistaDeSesion[]>(() => {
+    const contexto = this.contexto();
+    const incumplimientos = this.incumplimientos();
+    const duracion = this.parametros().duracionSesionHoras;
+    return contexto.sesiones.map((sesion) => {
+      const seccion = contexto.seccion(sesion);
+      return {
+        id: sesion.id,
+        asignatura: contexto.asignaturaDeSeccion(seccion).nombre,
+        seccion: seccion.numero,
+        numero: sesion.numero,
+        total: contexto.sesionesDeSeccion(seccion.id).length,
+        franja: sesion.franja ? formatoFranja(sesion.franja, duracion) : null,
+        ubicacion: sesion.franja,
+        estado: this.resumidor.estadoDeSesion(sesion, incumplimientos),
+      };
+    });
+  });
+
+  readonly pendientes = computed(() => this.vistas().filter((v) => v.ubicacion === null));
+  readonly programadas = computed(() => this.vistas().filter((v) => v.ubicacion !== null));
 
   readonly resumen = computed(() =>
     this.resumidor.resumir(this.sesionesDelGrupo(), this.incumplimientos()),
@@ -89,8 +128,11 @@ export class PlaneacionStore {
     this.estado.update((p) => this.editor.eliminarSeccion(p, seccionId));
   }
 
-  programar(sesionId: string, franja: Franja): void {
+  /** Programa o mueve una sesión; ignora franjas fuera del horario habilitado (HU-02). */
+  programar(sesionId: string, franja: Franja): boolean {
+    if (!cabeEnHorario(this.parametros(), franja)) return false;
     this.estado.update((p) => this.editor.programar(p, sesionId, franja));
+    return true;
   }
 
   devolver(sesionId: string): void {

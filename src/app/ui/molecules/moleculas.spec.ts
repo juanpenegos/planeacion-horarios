@@ -12,6 +12,7 @@ const SESION: VistaDeSesion = {
   numero: 1,
   total: 2,
   franja: 'jueves 14:00–16:00',
+  ubicacion: { dia: 'jueves', horaInicio: 14 },
   estado: 'restriccion',
 };
 

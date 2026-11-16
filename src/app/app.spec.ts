@@ -31,7 +31,7 @@ describe('App', () => {
     const titulos = Array.from(html.querySelectorAll('.panel-titulo')).map((t) => t.textContent);
     expect(titulos).toEqual([
       'Bloque de semestre',
-      'Sesiones pendientes',
+      'Sesiones pendientes (0)',
       'Horario semanal',
       'Verificación',
       'Parámetros',

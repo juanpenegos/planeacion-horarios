@@ -1,0 +1,51 @@
+.estado {
+  border-radius: var(--radio-md);
+  padding: var(--espacio-4);
+  border: var(--borde-fino) solid var(--restriccion-borde);
+  background: var(--no-listo-fondo);
+}
+.estado.listo {
+  border-color: var(--correcta-borde);
+  background: var(--listo-fondo);
+}
+.estado p {
+  margin: 0;
+}
+.titulo-estado {
+  font-weight: var(--peso-fuerte);
+}
+.cifras {
+  margin-top: var(--espacio-2) !important;
+  font-size: var(--texto-sm);
+}
+.acciones {
+  margin-top: var(--espacio-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+.acciones button {
+  width: 100%;
+}
+.ayuda,
+.sin-avisos {
+  margin: 0;
+  font-size: var(--texto-xs);
+  color: var(--color-texto-tenue);
+}
+.marcado {
+  margin: 0;
+  font-weight: var(--peso-fuerte);
+  color: var(--correcta-borde);
+}
+.subtitulo {
+  font-size: var(--texto-sm);
+  margin: var(--espacio-6) 0 var(--espacio-3);
+}
+.avisos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  max-height: 420px;
+  overflow-y: auto;
+}

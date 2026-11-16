@@ -1,0 +1,23 @@
+dl {
+  margin: 0 0 var(--espacio-4);
+  font-size: var(--texto-sm);
+}
+.fila {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  padding: var(--espacio-1) 0;
+  border-bottom: var(--borde-fino) solid var(--cuadricula-linea);
+}
+dt {
+  color: var(--color-texto-tenue);
+}
+dd {
+  margin: 0;
+  font-weight: var(--peso-fuerte);
+  text-align: right;
+}
+a {
+  font-size: var(--texto-sm);
+  color: var(--color-vino);
+}

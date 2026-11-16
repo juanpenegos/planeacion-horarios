@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { proveerDatos } from '../../../data/proveedores';
 import { Franja } from '../../../domain/models';
@@ -12,7 +13,7 @@ const BD1 = asignaturaPorNombre('Bases de datos 1').id;
 
 function montar() {
   localStorage.clear();
-  TestBed.configureTestingModule({ providers: proveerDatos() });
+  TestBed.configureTestingModule({ providers: [provideRouter([]), ...proveerDatos()] });
   const store = TestBed.inject(PlaneacionStore);
   store.crearBloque('IV');
   store.grupoSeleccionado.set('IV-01');

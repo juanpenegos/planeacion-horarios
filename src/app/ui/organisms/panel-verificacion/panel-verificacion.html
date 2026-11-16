@@ -1,0 +1,54 @@
+<section class="panel" aria-labelledby="titulo-verificacion">
+  <h2 class="panel-titulo" id="titulo-verificacion">Verificación</h2>
+
+  <div
+    class="estado"
+    [class.listo]="resumen().listoParaPublicar"
+    [class.no-listo]="!resumen().listoParaPublicar"
+    role="status"
+    aria-live="polite"
+  >
+    <p class="titulo-estado">
+      @if (resumen().listoParaPublicar) {
+        <span aria-hidden="true">✔</span> Listo para publicar
+      } @else {
+        <span aria-hidden="true">✖</span> No listo para publicar
+      }
+    </p>
+    <p class="cifras">{{ texto() }}</p>
+  </div>
+
+  @if (esBloque()) {
+    <div class="acciones">
+      @if (marcado()) {
+        <p class="marcado">
+          <span aria-hidden="true">✔</span> Bloque marcado como listo para publicar
+        </p>
+      } @else {
+        <button
+          app-boton
+          variante="primario"
+          type="button"
+          [disabled]="!resumen().listoParaPublicar"
+          (click)="marcarListo.emit()"
+        >
+          Marcar como listo para publicar
+        </button>
+        @if (!resumen().listoParaPublicar) {
+          <p class="ayuda">Se habilita con 0 restricciones y 0 sesiones pendientes.</p>
+        }
+      }
+    </div>
+  }
+
+  <h3 class="subtitulo">Avisos ({{ incumplimientos().length }})</h3>
+  @if (incumplimientos().length > 0) {
+    <div class="avisos" role="list" aria-label="Avisos del bloque">
+      @for (aviso of incumplimientos(); track $index) {
+        <app-fila-aviso [incumplimiento]="aviso" />
+      }
+    </div>
+  } @else {
+    <p class="sin-avisos">Sin restricciones ni advertencias.</p>
+  }
+</section>

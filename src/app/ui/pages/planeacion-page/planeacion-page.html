@@ -1,5 +1,5 @@
 <app-plantilla-tres-columnas cdkDropListGroup>
-  <div izquierda>
+  <div izquierda class="columna">
     <section class="panel">
       <h2 class="panel-titulo">Bloque de semestre</h2>
       <app-selector-bloque
@@ -31,13 +31,18 @@
       />
     </section>
   </div>
-  <div derecha>
-    <section class="panel">
-      <h2 class="panel-titulo">Verificación</h2>
-      <p>{{ store.textoResumen() }}</p>
-    </section>
-    <section class="panel">
-      <h2 class="panel-titulo">Parámetros</h2>
-    </section>
+  <div derecha class="columna">
+    <app-panel-verificacion
+      [resumen]="store.resumen()"
+      [texto]="store.textoResumen()"
+      [incumplimientos]="store.incumplimientos()"
+      [marcado]="store.marcadoComoListo()"
+      [esBloque]="store.grupoSeleccionado() !== fueraDeBloque"
+      (marcarListo)="marcarComoListo()"
+    />
+    @if (error()) {
+      <p class="error" role="alert">{{ error() }}</p>
+    }
+    <app-panel-parametros [parametros]="store.parametros()" />
   </div>
 </app-plantilla-tres-columnas>

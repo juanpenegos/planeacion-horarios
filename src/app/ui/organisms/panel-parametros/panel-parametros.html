@@ -1,0 +1,12 @@
+<section class="panel" aria-labelledby="titulo-parametros">
+  <h2 class="panel-titulo" id="titulo-parametros">Parámetros</h2>
+  <dl>
+    @for (fila of filas(); track fila.etiqueta) {
+      <div class="fila">
+        <dt>{{ fila.etiqueta }}</dt>
+        <dd>{{ fila.valor }}</dd>
+      </div>
+    }
+  </dl>
+  <a routerLink="/parametros">Cambiar parámetros</a>
+</section>

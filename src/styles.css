@@ -102,3 +102,35 @@ button {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* Átomo botón (directiva appBoton). */
+.boton {
+  padding: 6px 12px;
+  border: 1px solid var(--panel-borde);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-texto);
+  cursor: pointer;
+}
+.boton:hover:not(:disabled) {
+  background: var(--cuadricula-encabezado);
+}
+.boton-primario {
+  background: var(--color-vino);
+  border-color: var(--color-vino);
+  color: #fff;
+}
+.boton-primario:hover:not(:disabled) {
+  background: #5f1821;
+}
+.boton-enlace {
+  border: none;
+  background: none;
+  color: var(--color-vino);
+  text-decoration: underline;
+  padding: 2px 4px;
+}
+.boton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

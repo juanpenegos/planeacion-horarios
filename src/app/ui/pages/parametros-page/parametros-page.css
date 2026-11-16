@@ -1,12 +1,6 @@
 :host {
   display: block;
 }
-.pagina {
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--separacion);
-}
 .ayuda {
   margin: 0 0 var(--espacio-6);
   font-size: var(--texto-sm);

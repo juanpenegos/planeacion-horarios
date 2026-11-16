@@ -36,8 +36,10 @@ Angular (componentes standalone, signals, detección de cambios OnPush), `@angul
 src/app/
   domain/   modelos, reglas (una clase por regla) y servicios, en TypeScript puro
   data/     repositorios (plan de estudios, planeación), importación/exportación y descargas
-  state/    store de la planeación con signals
-  ui/       átomos, moléculas, organismos, plantillas y páginas (cada componente con .ts, .html y .css)
+  state/    store de la planeación con signals, servicio de exportación e importación
+            y tokens de inyección de los servicios del dominio
+  ui/       átomos, moléculas, organismos, plantillas (tres columnas y una columna) y páginas
+            (cada componente con .ts, .html y .css)
 e2e/        pruebas de punta a punta por historia de usuario
 docs/evidencias/  capturas, reportes de pruebas y CSV exportado
 ```

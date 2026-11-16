@@ -2,7 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { CLAVE_PLANEACION } from '../data/local-storage-planeacion.repository';
 import { proveerDatos } from '../data/proveedores';
 import { BLOQUE_IV, asignaturaPorNombre } from '../domain/testing/escenario';
+import { Incumplimiento } from '../domain/models';
+import { ExportacionDePlaneacion } from './exportacion-de-planeacion';
 import { PlaneacionStore } from './planeacion.store';
+import { VERIFICADOR } from './servicios-del-dominio';
 
 function crearStore(): PlaneacionStore {
   TestBed.resetTestingModule();
@@ -52,15 +55,33 @@ describe('PlaneacionStore', () => {
     expect(reabierto.grupoSeleccionado()).toBe('IV-01');
   });
 
-  it('exporta e importa la planeación como JSON', () => {
+  it('exporta e importa la planeación como JSON con su servicio propio', () => {
     const store = crearStore();
     store.crearBloque('IV');
     for (const nombre of BLOQUE_IV) store.crearSeccion(id(nombre), 'IV-01');
-    const json = store.exportarJson();
+    const json = TestBed.inject(ExportacionDePlaneacion).json().contenido;
 
     const otro = crearStore();
-    otro.importarJson(json);
+    TestBed.inject(ExportacionDePlaneacion).importarJson(json);
     expect(otro.planeacion().sesiones.length).toBe(10);
     expect(otro.grupoSeleccionado()).toBe('IV-01');
+  });
+
+  it('recibe el verificador por inyección: se puede reemplazar sin tocar el almacén', () => {
+    const aviso: Incumplimiento = {
+      reglaId: 'PRUEBA',
+      tipo: 'advertencia',
+      sesionIds: [],
+      mensaje: 'Regla de prueba',
+    };
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({
+      providers: [
+        ...proveerDatos(),
+        { provide: VERIFICADOR, useValue: { verificar: () => [aviso] } },
+      ],
+    });
+    const store = TestBed.inject(PlaneacionStore);
+    expect(store.incumplimientos()).toEqual([aviso]);
   });
 });

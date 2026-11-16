@@ -1,44 +1,44 @@
-<testsuites id="" name="" tests="16" failures="0" skipped="0" errors="0" time="52.325869">
-<testsuite name="historias.spec.ts" timestamp="2026-11-16T02:59:37.771Z" hostname="chromium" tests="8" failures="0" skipped="0" time="30.995" errors="0">
-<testcase name="HU-01: el plan de estudios muestra 58 asignaturas, 33 programables y los créditos del PEP" classname="historias.spec.ts" time="2.779">
+<testsuites id="" name="" tests="16" failures="0" skipped="0" errors="0" time="57.854928">
+<testsuite name="historias.spec.ts" timestamp="2026-11-16T03:33:20.996Z" hostname="chromium" tests="8" failures="0" skipped="0" time="33.157" errors="0">
+<testcase name="HU-01: el plan de estudios muestra 58 asignaturas, 33 programables y los créditos del PEP" classname="historias.spec.ts" time="2.454">
 </testcase>
-<testcase name="HU-02: con el sábado de 7:00 a 11:00 la cuadrícula no permite programar después de las 11:00" classname="historias.spec.ts" time="4.336">
+<testcase name="HU-02: con el sábado de 7:00 a 11:00 la cuadrícula no permite programar después de las 11:00" classname="historias.spec.ts" time="4.596">
 </testcase>
-<testcase name="HU-03: Bases de datos 1 sección 01 en el bloque Semestre IV crea 3 sesiones pendientes" classname="historias.spec.ts" time="2.315">
+<testcase name="HU-03: Bases de datos 1 sección 01 en el bloque Semestre IV crea 3 sesiones pendientes" classname="historias.spec.ts" time="3.311">
 </testcase>
-<testcase name="HU-04: arrastrar, mover y devolver una sesión" classname="historias.spec.ts" time="4.313">
+<testcase name="HU-04: arrastrar, mover y devolver una sesión" classname="historias.spec.ts" time="6.521">
 </testcase>
-<testcase name="HU-05: el cruce del jueves muestra RN-05 con ambas asignaturas y el bloque no queda listo" classname="historias.spec.ts" time="3.172">
+<testcase name="HU-05: el cruce del jueves muestra RN-05 con ambas asignaturas y el bloque no queda listo" classname="historias.spec.ts" time="3.634">
 </testcase>
-<testcase name="HU-06: el bloque Semestre IV completo exporta un CSV de 10 filas" classname="historias.spec.ts" time="7.207">
+<testcase name="HU-06: el bloque Semestre IV completo exporta un CSV de 10 filas" classname="historias.spec.ts" time="5.271">
 </testcase>
-<testcase name="ENF-05: la planeación se conserva al recargar el navegador" classname="historias.spec.ts" time="2.891">
+<testcase name="ENF-05: la planeación se conserva al recargar el navegador" classname="historias.spec.ts" time="3.601">
 </testcase>
-<testcase name="ENF-02: cada verificación tras 10 movimientos en el bloque IV tarda 1 s o menos" classname="historias.spec.ts" time="3.982">
+<testcase name="ENF-02: cada verificación tras 10 movimientos en el bloque IV tarda 1 s o menos" classname="historias.spec.ts" time="3.769">
 <properties>
-<property name="ENF-02" value="Tiempo máximo de un movimiento con su verificación: 108 ms">
+<property name="ENF-02" value="Tiempo máximo de un movimiento con su verificación: 122 ms">
 </property>
 </properties>
 </testcase>
 </testsuite>
-<testsuite name="historias.spec.ts" timestamp="2026-11-16T02:59:37.771Z" hostname="firefox" tests="8" failures="0" skipped="0" time="84.133" errors="0">
-<testcase name="HU-01: el plan de estudios muestra 58 asignaturas, 33 programables y los créditos del PEP" classname="historias.spec.ts" time="9.041">
+<testsuite name="historias.spec.ts" timestamp="2026-11-16T03:33:20.996Z" hostname="firefox" tests="8" failures="0" skipped="0" time="90.658" errors="0">
+<testcase name="HU-01: el plan de estudios muestra 58 asignaturas, 33 programables y los créditos del PEP" classname="historias.spec.ts" time="11.928">
 </testcase>
-<testcase name="HU-02: con el sábado de 7:00 a 11:00 la cuadrícula no permite programar después de las 11:00" classname="historias.spec.ts" time="13.582">
+<testcase name="HU-02: con el sábado de 7:00 a 11:00 la cuadrícula no permite programar después de las 11:00" classname="historias.spec.ts" time="16.141">
 </testcase>
-<testcase name="HU-03: Bases de datos 1 sección 01 en el bloque Semestre IV crea 3 sesiones pendientes" classname="historias.spec.ts" time="9.219">
+<testcase name="HU-03: Bases de datos 1 sección 01 en el bloque Semestre IV crea 3 sesiones pendientes" classname="historias.spec.ts" time="14.084">
 </testcase>
-<testcase name="HU-04: arrastrar, mover y devolver una sesión" classname="historias.spec.ts" time="12.288">
+<testcase name="HU-04: arrastrar, mover y devolver una sesión" classname="historias.spec.ts" time="13.275">
 </testcase>
-<testcase name="HU-05: el cruce del jueves muestra RN-05 con ambas asignaturas y el bloque no queda listo" classname="historias.spec.ts" time="8.063">
+<testcase name="HU-05: el cruce del jueves muestra RN-05 con ambas asignaturas y el bloque no queda listo" classname="historias.spec.ts" time="6.854">
 </testcase>
-<testcase name="HU-06: el bloque Semestre IV completo exporta un CSV de 10 filas" classname="historias.spec.ts" time="12.162">
+<testcase name="HU-06: el bloque Semestre IV completo exporta un CSV de 10 filas" classname="historias.spec.ts" time="11.422">
 </testcase>
-<testcase name="ENF-05: la planeación se conserva al recargar el navegador" classname="historias.spec.ts" time="7.933">
+<testcase name="ENF-05: la planeación se conserva al recargar el navegador" classname="historias.spec.ts" time="7.016">
 </testcase>
-<testcase name="ENF-02: cada verificación tras 10 movimientos en el bloque IV tarda 1 s o menos" classname="historias.spec.ts" time="11.845">
+<testcase name="ENF-02: cada verificación tras 10 movimientos en el bloque IV tarda 1 s o menos" classname="historias.spec.ts" time="9.938">
 <properties>
-<property name="ENF-02" value="Tiempo máximo de un movimiento con su verificación: 301 ms">
+<property name="ENF-02" value="Tiempo máximo de un movimiento con su verificación: 262 ms">
 </property>
 </properties>
 </testcase>

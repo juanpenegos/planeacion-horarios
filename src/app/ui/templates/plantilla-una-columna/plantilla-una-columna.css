@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  padding: var(--separacion);
+}
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--separacion);
+}
+:host(.medio) .columna {
+  max-width: var(--ancho-pagina-medio);
+}
+:host(.angosto) .columna {
+  max-width: var(--ancho-pagina-angosto);
+}

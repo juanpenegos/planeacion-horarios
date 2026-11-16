@@ -36,6 +36,8 @@
   --ancho-columna-horas: 56px;
   --ancho-minimo-dia: 110px;
   --ancho-minimo-cuadricula: 720px;
+  --ancho-pagina-medio: 960px;
+  --ancho-pagina-angosto: 720px;
 
   /* ── Estados de sesión ────────────────────────────────────── */
   --pendiente-fondo: #e8eefc;

@@ -3,12 +3,13 @@ import { ErrorDePlaneacion, SEMESTRES_CON_BLOQUE, Semestre } from '../../../doma
 import { PlaneacionStore } from '../../../state/planeacion.store';
 import { Boton } from '../../atoms/boton/boton';
 import { GrupoDeSeccionesComponent } from '../../organisms/grupo-de-secciones/grupo-de-secciones';
+import { PlantillaUnaColumna } from '../../templates/plantilla-una-columna/plantilla-una-columna';
 
 /** Definición de bloques de semestre y de las secciones que se abren (HU-03). */
 @Component({
   selector: 'app-secciones-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Boton, GrupoDeSeccionesComponent],
+  imports: [PlantillaUnaColumna, Boton, GrupoDeSeccionesComponent],
   templateUrl: './secciones-page.html',
   styleUrl: './secciones-page.css',
 })

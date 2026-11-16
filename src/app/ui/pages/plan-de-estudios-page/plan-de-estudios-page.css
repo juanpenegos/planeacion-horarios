@@ -1,11 +1,6 @@
 :host {
   display: block;
 }
-.pagina {
-  display: flex;
-  flex-direction: column;
-  gap: var(--separacion);
-}
 .cifras {
   display: flex;
   flex-wrap: wrap;

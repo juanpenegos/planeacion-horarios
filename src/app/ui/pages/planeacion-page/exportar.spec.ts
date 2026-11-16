@@ -7,6 +7,7 @@ import {
   asignaturaPorNombre,
   bloqueIVCompleto,
 } from '../../../domain/testing/escenario';
+import { ExportacionDePlaneacion } from '../../../state/exportacion-de-planeacion';
 import { PlaneacionStore } from '../../../state/planeacion.store';
 import { ParametrosPage } from '../parametros-page/parametros-page';
 import { PlaneacionPage } from './planeacion-page';
@@ -51,7 +52,8 @@ describe('Exportar (HU-06 y ENF-05)', () => {
     const fixture = TestBed.createComponent(PlaneacionPage);
     fixture.detectChanges();
     expect(botonExportar(fixture.nativeElement).disabled).toBe(true);
-    expect(store.exportarCsv()).toBeNull();
+    expect(store.bloqueSeleccionado()?.id).toBe('IV-01');
+    expect(TestBed.inject(ExportacionDePlaneacion).csvDelBloque()).toBeNull();
   });
 
   it('HU-06: el bloque Semestre IV listo para publicar exporta un CSV con 10 filas', () => {

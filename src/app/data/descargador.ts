@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 
-/** Entrega un archivo al navegador para que el Director lo guarde. */
-@Injectable({ providedIn: 'root' })
-export class Descargador {
+/** Entrega un archivo al Director para que lo guarde. */
+export abstract class Descargador {
+  abstract descargar(nombre: string, contenido: string, tipo: string): void;
+}
+
+/** Descarga el archivo desde el navegador con un enlace temporal. */
+@Injectable()
+export class DescargadorDelNavegador extends Descargador {
   descargar(nombre: string, contenido: string, tipo: string): void {
     // El BOM hace que Excel lea bien las tildes del CSV.
     const datos = tipo.startsWith('text/csv') ? '﻿' + contenido : contenido;

@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { SEMESTRES, Semestre } from '../../../domain/models';
 import { PlaneacionStore } from '../../../state/planeacion.store';
 import { TablaAsignaturas } from '../../organisms/tabla-asignaturas/tabla-asignaturas';
+import { PlantillaUnaColumna } from '../../templates/plantilla-una-columna/plantilla-una-columna';
 
 /** Consulta del plan de estudios PEP 2025 (HU-01). */
 @Component({
   selector: 'app-plan-de-estudios-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TablaAsignaturas],
+  imports: [PlantillaUnaColumna, TablaAsignaturas],
   templateUrl: './plan-de-estudios-page.html',
   styleUrl: './plan-de-estudios-page.css',
 })

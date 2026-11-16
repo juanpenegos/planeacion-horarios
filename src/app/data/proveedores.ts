@@ -1,5 +1,6 @@
 import { Provider } from '@angular/core';
 import { AsignaturasRepository, JsonAsignaturasRepository } from './asignaturas.repository';
+import { Descargador, DescargadorDelNavegador } from './descargador';
 import { LocalStoragePlaneacionRepository } from './local-storage-planeacion.repository';
 import { PlaneacionRepository } from './planeacion.repository';
 
@@ -11,5 +12,6 @@ export function proveerDatos(): Provider[] {
       provide: PlaneacionRepository,
       useFactory: () => new LocalStoragePlaneacionRepository(localStorage),
     },
+    { provide: Descargador, useClass: DescargadorDelNavegador },
   ];
 }

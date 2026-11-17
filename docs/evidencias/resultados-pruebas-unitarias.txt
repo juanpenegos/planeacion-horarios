@@ -1,13 +1,13 @@
 ❯ Building...
 ✔ Building...
-Application bundle generation complete. [4.221 seconds] - 2026-11-16T03:32:23.635Z
+Application bundle generation complete. [4.568 seconds] - 2026-11-17T01:39:02.140Z
 
 
  RUN  v5.1.0 C:/Users/ASUS/Dev/planeacion-horarios
 
 
- Test Files  27 passed (27)
-      Tests  113 passed (113)
-   Start at  22:32:24
-   Duration  10.09s (environment 82%, setup 9%, tests 6%, import 1%, transform 1%)
+ Test Files  30 passed (30)
+      Tests  127 passed (127)
+   Start at  20:39:02
+   Duration  9.80s (environment 83%, setup 8%, tests 6%, import 2%, transform 1%)
 

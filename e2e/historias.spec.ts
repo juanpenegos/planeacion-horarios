@@ -210,3 +210,32 @@ test('ENF-02: cada verificación tras 10 movimientos en el bloque IV tarda 1 s o
   expect(tiempos).toHaveLength(10);
   expect(maximo).toBeLessThanOrEqual(1000);
 });
+
+test('HU-02: el cupo de referencia (35 + 20 %) se guarda, se calcula y se conserva al recargar', async ({
+  page,
+}, testInfo) => {
+  await page.goto('#/parametros');
+  const resultado = page.locator('[data-campo="cupo-maximo"] [aria-hidden="true"]');
+  await expect(resultado).toHaveText('Cupo máximo por sección: 44 estudiantes (40 + 10 %)');
+
+  await page.getByLabel('Cupo por sección (estudiantes)').fill('35');
+  await page.getByLabel('Tolerancia del cupo (%)').fill('20');
+  await expect(resultado).toHaveText('Cupo máximo por sección: 42 estudiantes (35 + 20 %)');
+  await page.getByRole('button', { name: 'Guardar' }).click();
+  await expect(page.getByText('Parámetros guardados')).toBeVisible();
+  await capturar(page, testInfo, 'hu-02-cupo');
+
+  await page.reload();
+  await expect(page.getByLabel('Cupo por sección (estudiantes)')).toHaveValue('35');
+  await expect(page.getByLabel('Tolerancia del cupo (%)')).toHaveValue('20');
+  await expect(resultado).toHaveText('Cupo máximo por sección: 42 estudiantes (35 + 20 %)');
+
+  await page.getByRole('link', { name: 'Planeación' }).click();
+  const panel = page.locator('app-panel-parametros');
+  await expect(panel.locator('.fila', { hasText: 'Cupo por sección' }).locator('dd')).toHaveText(
+    '35 estudiantes',
+  );
+  await expect(panel.locator('.fila', { hasText: 'Tolerancia del cupo' }).locator('dd')).toHaveText(
+    '20 %',
+  );
+});

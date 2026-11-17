@@ -9,13 +9,17 @@ Aplicación web para que el Director del Programa de Ingeniería de Sistemas de 
 | Historia | Qué hace |
 | --- | --- |
 | HU-01 | Consultar el plan de estudios: 58 asignaturas, 33 programables y créditos por semestre. |
-| HU-02 | Configurar los parámetros: horario habilitado por día, bloque sin clases, duración de la sesión y máximo de sesiones semanales. |
+| HU-02 | Configurar los parámetros: horario habilitado por día, bloque sin clases, duración de la sesión, máximo de sesiones semanales y el cupo de referencia (cupo por sección y tolerancia). |
 | HU-03 | Crear bloques de semestre y secciones; cada sección genera sus sesiones pendientes. |
 | HU-04 | Programar, mover y devolver sesiones arrastrándolas en la cuadrícula semanal (o con «Programar en…» desde el teclado). |
 | HU-05 | Ver al instante las restricciones (RN-01 a RN-05) y advertencias (RA-01) incumplidas. |
 | HU-06 | Marcar un bloque como listo para publicar y exportar su oferta en CSV. |
 
 La planeación se guarda en el navegador y puede exportarse o importarse como JSON desde la página Parámetros.
+
+### Cupo de referencia
+
+El cupo por sección (por defecto 40 estudiantes) y su tolerancia (por defecto 10 %) son parámetros editables. La página Parámetros muestra el cupo máximo resultante, redondeado hacia abajo: «Cupo máximo por sección: 44 estudiantes (40 + 10 %)». Son **informativos**: ninguna regla los usa, porque la planeación es de oferta y no conoce la demanda. Las planeaciones y archivos JSON guardados antes de este cambio se cargan sin problema y toman los valores por defecto.
 
 ## Reglas verificadas
 
@@ -74,7 +78,7 @@ Cada cambio en la rama `main` ejecuta el flujo de GitHub Actions `.github/workfl
 
 En `docs/evidencias/` están:
 
-- una captura por historia de usuario (`hu-01` a `hu-06`) y de la persistencia (`enf-05`);
+- una captura por historia de usuario (`hu-01` a `hu-06`, más `hu-02-cupo`) y de la persistencia (`enf-05`);
 - `hu-06-oferta-semestre-IV.csv`, la oferta exportada del bloque Semestre IV;
 - `reporte-e2e/` (reporte HTML de Playwright) y `resultados-e2e.xml`;
 - `resultados-pruebas-unitarias.txt`;

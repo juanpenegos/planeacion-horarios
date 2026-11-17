@@ -38,6 +38,8 @@
   --ancho-minimo-cuadricula: 720px;
   --ancho-pagina-medio: 960px;
   --ancho-pagina-angosto: 720px;
+  --ancho-campo-numero: 72px;
+  --ancho-campos-formulario: 420px;
 
   /* ── Estados de sesión ────────────────────────────────────── */
   --pendiente-fondo: #e8eefc;

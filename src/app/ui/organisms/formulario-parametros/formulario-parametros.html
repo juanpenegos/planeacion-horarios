@@ -91,6 +91,47 @@
     </div>
   </fieldset>
 
+  <fieldset>
+    <legend>Cupo de referencia</legend>
+    <p class="nota">
+      Informativo: ninguna regla lo usa, porque la planeación es de oferta y no conoce la demanda.
+    </p>
+    <div class="campos">
+      <label>
+        Cupo por sección (estudiantes)
+        <input
+          type="number"
+          min="1"
+          step="1"
+          data-campo="cupo"
+          [value]="borrador().cupoPorSeccion"
+          (input)="cambiarNumero('cupoPorSeccion', $any($event.target).value)"
+        />
+      </label>
+      <label>
+        Tolerancia del cupo (%)
+        <input
+          type="number"
+          min="0"
+          max="100"
+          data-campo="tolerancia"
+          [value]="borrador().toleranciaCupoPorcentaje"
+          (input)="cambiarNumero('toleranciaCupoPorcentaje', $any($event.target).value)"
+        />
+      </label>
+    </div>
+    @if (cupo(); as cupo) {
+      <p class="cupo-maximo" data-campo="cupo-maximo" aria-live="polite">
+        <span aria-hidden="true">{{ cupo.texto }}</span>
+        <span class="solo-lectores"
+          >Cupo máximo por sección: {{ cupo.maximo }} estudiantes, que resultan de
+          {{ borrador().cupoPorSeccion }} estudiantes más
+          {{ borrador().toleranciaCupoPorcentaje }} por ciento de tolerancia</span
+        >
+      </p>
+    }
+  </fieldset>
+
   @if (errores().length > 0) {
     <ul class="errores" role="alert">
       @for (e of errores(); track e) {

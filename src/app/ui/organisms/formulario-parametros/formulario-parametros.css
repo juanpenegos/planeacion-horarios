@@ -26,7 +26,7 @@ thead th {
   font-weight: normal;
 }
 input {
-  width: 72px;
+  width: var(--ancho-campo-numero);
   padding: var(--espacio-2) var(--espacio-3);
   border: var(--borde-fino) solid var(--panel-borde);
   border-radius: var(--radio-sm);
@@ -42,7 +42,7 @@ input {
   justify-content: space-between;
   align-items: center;
   gap: var(--espacio-4);
-  max-width: 420px;
+  max-width: var(--ancho-campos-formulario);
 }
 .errores {
   margin: 0;
@@ -55,4 +55,15 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: var(--espacio-4);
+}
+.nota {
+  margin: 0 0 var(--espacio-4);
+  font-size: var(--texto-xs);
+  color: var(--color-texto-tenue);
+}
+.cupo-maximo {
+  margin: var(--espacio-5) 0 0;
+  font-size: var(--texto-sm);
+  font-weight: var(--peso-fuerte);
+  color: var(--color-vino);
 }

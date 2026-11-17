@@ -14,10 +14,14 @@ import {
   PARAMETROS_POR_DEFECTO,
   Parametros,
 } from '../../../domain/models';
+import { cupoMaximo, textoCupoMaximo } from '../../../domain/services/cupo';
 import { ValidadorDeParametros } from '../../../domain/services/validador-de-parametros';
 import { Boton } from '../../atoms/boton/boton';
 
-/** Formulario para editar horario por día, bloque sin clases, duración y máximo (HU-02). */
+/**
+ * Formulario para editar horario por día, bloque sin clases, duración, máximo de sesiones
+ * y el cupo de referencia (HU-02).
+ */
 @Component({
   selector: 'app-formulario-parametros',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,6 +40,12 @@ export class FormularioParametros {
   /** Copia que se edita; solo se aplica al guardar. */
   readonly borrador = linkedSignal(() => this.parametros());
   readonly errores = computed(() => this.validador.errores(this.borrador()));
+  /** Cupo máximo calculado con el borrador, o nulo mientras el cupo o la tolerancia no sean válidos. */
+  readonly cupo = computed(() => {
+    const p = this.borrador();
+    if (this.errores().some((e) => e.includes('cupo'))) return null;
+    return { maximo: cupoMaximo(p), texto: textoCupoMaximo(p) };
+  });
   readonly hayCambios = computed(
     () => JSON.stringify(this.borrador()) !== JSON.stringify(this.parametros()),
   );
@@ -57,7 +67,14 @@ export class FormularioParametros {
     }));
   }
 
-  cambiarNumero(campo: 'duracionSesionHoras' | 'maximoSesionesSemana', valor: string): void {
+  cambiarNumero(
+    campo:
+      | 'duracionSesionHoras'
+      | 'maximoSesionesSemana'
+      | 'cupoPorSeccion'
+      | 'toleranciaCupoPorcentaje',
+    valor: string,
+  ): void {
     this.borrador.update((p) => ({ ...p, [campo]: Number(valor) }));
   }
 

@@ -44,6 +44,8 @@ export class PanelParametros {
     });
     filas.push({ etiqueta: 'Duración de la sesión', valor: `${p.duracionSesionHoras} horas` });
     filas.push({ etiqueta: 'Máximo de sesiones semanales', valor: `${p.maximoSesionesSemana}` });
+    filas.push({ etiqueta: 'Cupo por sección', valor: `${p.cupoPorSeccion} estudiantes` });
+    filas.push({ etiqueta: 'Tolerancia del cupo', valor: `${p.toleranciaCupoPorcentaje} %` });
     return filas;
   });
 }

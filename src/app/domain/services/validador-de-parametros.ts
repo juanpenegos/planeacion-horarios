@@ -27,6 +27,16 @@ export class ValidadorDeParametros {
     if (!Number.isInteger(p.maximoSesionesSemana) || p.maximoSesionesSemana < 1) {
       errores.push('El máximo de sesiones semanales debe ser un número entero, mínimo 1');
     }
+    if (!Number.isInteger(p.cupoPorSeccion) || p.cupoPorSeccion < 1) {
+      errores.push('El cupo por sección debe ser un número entero de estudiantes, mínimo 1');
+    }
+    if (
+      !Number.isFinite(p.toleranciaCupoPorcentaje) ||
+      p.toleranciaCupoPorcentaje < 0 ||
+      p.toleranciaCupoPorcentaje > 100
+    ) {
+      errores.push('La tolerancia del cupo debe ser un porcentaje entre 0 y 100');
+    }
     return errores;
   }
 }

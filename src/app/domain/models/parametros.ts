@@ -24,6 +24,13 @@ export interface Parametros {
   readonly bloqueSinClases: Intervalo;
   readonly duracionSesionHoras: number;
   readonly maximoSesionesSemana: number;
+  /**
+   * Cupo de referencia por sección (estudiantes). Es informativo: ninguna regla lo usa,
+   * porque el producto es de oferta y no conoce la demanda.
+   */
+  readonly cupoPorSeccion: number;
+  /** Tolerancia sobre el cupo, en porcentaje (10 = 10 %). También es informativa. */
+  readonly toleranciaCupoPorcentaje: number;
 }
 
 const LUNES_A_VIERNES: Intervalo = { inicio: 7, fin: 22 };
@@ -41,4 +48,6 @@ export const PARAMETROS_POR_DEFECTO: Parametros = {
   bloqueSinClases: { inicio: 12, fin: 13 },
   duracionSesionHoras: 2,
   maximoSesionesSemana: 4,
+  cupoPorSeccion: 40,
+  toleranciaCupoPorcentaje: 10,
 };

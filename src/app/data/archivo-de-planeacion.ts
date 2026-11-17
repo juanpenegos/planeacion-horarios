@@ -1,4 +1,4 @@
-import { ErrorDePlaneacion, Planeacion } from '../domain/models';
+import { ErrorDePlaneacion, PARAMETROS_POR_DEFECTO, Planeacion } from '../domain/models';
 
 /** Convierte la planeación a texto JSON y la recupera desde un archivo (ENF-05). */
 export class ArchivoDePlaneacion {
@@ -16,7 +16,13 @@ export class ArchivoDePlaneacion {
     if (!esPlaneacion(datos)) {
       throw new ErrorDePlaneacion('El archivo no contiene una planeación válida');
     }
-    return { ...datos, bloquesMarcados: datos.bloquesMarcados ?? [] };
+    // Compatibilidad: las planeaciones guardadas antes de agregar un parámetro no lo traen;
+    // se completa con su valor por defecto en vez de rechazar el archivo.
+    return {
+      ...datos,
+      parametros: { ...PARAMETROS_POR_DEFECTO, ...datos.parametros },
+      bloquesMarcados: datos.bloquesMarcados ?? [],
+    };
   }
 }
 
